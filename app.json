@@ -15,7 +15,8 @@
       "supportsTablet": false,
       "bundleIdentifier": "com.maaker.elderease",
       "infoPlist": {
-        "UIRequiresFullScreen": true
+        "UIRequiresFullScreen": true,
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
