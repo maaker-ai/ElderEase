@@ -38,8 +38,12 @@
       [
         "expo-splash-screen",
         {
-          "ios": { "backgroundColor": "#FFFBF0" },
-          "android": { "backgroundColor": "#FFFBF0" }
+          "ios": {
+            "backgroundColor": "#FFFBF0"
+          },
+          "android": {
+            "backgroundColor": "#FFFBF0"
+          }
         }
       ],
       [
@@ -48,6 +52,13 @@
           "sounds": []
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "49c82d1e-dc3c-4d9f-b6a4-8926e517c96f"
+      }
+    },
+    "owner": "maruipp"
   }
 }
