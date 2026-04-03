@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Alert, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { Pill, X, Check, CircleX, Shield, Lock } from 'lucide-react-native';
@@ -290,7 +290,7 @@ export default function PaywallScreen() {
             </TouchableOpacity>
 
             <View style={{ flexDirection: 'row', gap: 16 }}>
-              <TouchableOpacity activeOpacity={0.7}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/privacy')}>
                 <Text
                   style={{
                     fontFamily: Fonts.inter.regular,
@@ -301,7 +301,7 @@ export default function PaywallScreen() {
                   {t('paywall.privacyPolicy')}
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.7}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/terms')}>
                 <Text
                   style={{
                     fontFamily: Fonts.inter.regular,

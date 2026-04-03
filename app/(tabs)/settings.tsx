@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Switch, Alert } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Switch, Alert, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import {
@@ -306,7 +306,7 @@ export default function SettingsScreen() {
             iconColor={Colors.textSecondary}
             iconBg={Colors.upcoming}
             label={t('settings.privacyPolicy')}
-            onPress={() => {}}
+            onPress={() => Linking.openURL('https://maaker.ai/privacy')}
           />
           <Divider />
           <SettingsRow
