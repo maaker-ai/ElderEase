@@ -17,7 +17,8 @@
       "infoPlist": {
         "UIRequiresFullScreen": true,
         "ITSAppUsesNonExemptEncryption": false
-      }
+      },
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
