@@ -15,9 +15,8 @@
   "submit": {
     "production": {
       "ios": {
-        "ascApiKeyId": "L57984QZY8",
-        "ascApiKeyIssuerId": "69a6de96-33e0-47e3-e053-5b8c7c11a4d1",
-        "ascApiKeyPath": "~/.appstoreconnect/private_keys/AuthKey_L57984QZY8.p8"
+        "appleId": "maruipeng@qq.com",
+        "appleTeamId": "2N748MS322"
       }
     }
   }
