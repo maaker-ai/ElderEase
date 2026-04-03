@@ -23,3 +23,12 @@ export const Colors = {
   tabBarBg: '#FFFFFF',
   tabBarBorder: '#E7E5E4',
 } as const;
+
+/** High-contrast overrides for accessibility */
+export const HighContrastColors = {
+  textPrimary: '#000000',
+  textSecondary: '#3D3D3D',
+  textPlaceholder: '#5C5C5C',
+  cardBorder: '#999999',
+  tabInactive: '#5C5C5C',
+} as const;

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
+import { useColors } from '@/hooks/useColors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
 import { ReminderSound, EarlyReminder, TextSizeOption } from '@/types';
@@ -25,6 +26,8 @@ export default function SettingsScreen() {
     highContrast, setHighContrast,
     isUnlimited,
   } = useAppStore();
+
+  const C = useColors();
 
   const [showSoundPicker, setShowSoundPicker] = useState(false);
   const [showEarlyPicker, setShowEarlyPicker] = useState(false);
@@ -55,7 +58,7 @@ export default function SettingsScreen() {
         fontFamily: Fonts.manrope.bold,
         fontSize: 12,
         letterSpacing: 2,
-        color: Colors.textPlaceholder,
+        color: C.textPlaceholder,
         marginTop: 12,
         marginBottom: 8,
       }}
@@ -70,7 +73,7 @@ export default function SettingsScreen() {
         backgroundColor: Colors.card,
         borderRadius: 20,
         borderWidth: 1,
-        borderColor: Colors.cardBorder,
+        borderColor: C.cardBorder,
         overflow: 'hidden',
       }}
     >
@@ -123,7 +126,7 @@ export default function SettingsScreen() {
           style={{
             fontFamily: Fonts.manrope.semiBold,
             fontSize: 16,
-            color: Colors.textPrimary,
+            color: C.textPrimary,
           }}
         >
           {label}
@@ -133,14 +136,14 @@ export default function SettingsScreen() {
             style={{
               fontFamily: Fonts.inter.regular,
               fontSize: 14,
-              color: Colors.textSecondary,
+              color: C.textSecondary,
             }}
           >
             {value}
           </Text>
         )}
       </View>
-      {rightElement || (onPress && <ChevronRight size={20} color={Colors.textPlaceholder} strokeWidth={2} />)}
+      {rightElement || (onPress && <ChevronRight size={20} color={C.textPlaceholder} strokeWidth={2} />)}
     </TouchableOpacity>
   );
 
@@ -158,7 +161,7 @@ export default function SettingsScreen() {
           style={{
             fontFamily: Fonts.manrope.extraBold,
             fontSize: 30,
-            color: Colors.textPrimary,
+            color: C.textPrimary,
             letterSpacing: -0.5,
             paddingTop: 16,
           }}
@@ -269,6 +272,7 @@ export default function SettingsScreen() {
             iconColor={Colors.primary}
             iconBg={Colors.primaryLight}
             label={t('settings.highContrast')}
+            onPress={() => setHighContrast(!highContrast)}
             rightElement={
               <Switch
                 value={highContrast}
