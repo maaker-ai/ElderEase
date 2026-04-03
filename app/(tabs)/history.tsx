@@ -29,12 +29,24 @@ export default function HistoryScreen() {
   const daysInMonth = getDaysInMonth(viewYear, viewMonth);
   const firstDay = getFirstDayOfMonth(viewYear, viewMonth);
 
+  const resetSelectedDate = (year: number, month: number) => {
+    const today = new Date();
+    if (year === today.getFullYear() && month === today.getMonth()) {
+      setSelectedDate(todayISO());
+    } else {
+      const dateStr = `${year}-${(month + 1).toString().padStart(2, '0')}-01`;
+      setSelectedDate(dateStr);
+    }
+  };
+
   const prevMonth = () => {
     if (viewMonth === 0) {
       setViewMonth(11);
       setViewYear(viewYear - 1);
+      resetSelectedDate(viewYear - 1, 11);
     } else {
       setViewMonth(viewMonth - 1);
+      resetSelectedDate(viewYear, viewMonth - 1);
     }
   };
 
@@ -42,8 +54,10 @@ export default function HistoryScreen() {
     if (viewMonth === 11) {
       setViewMonth(0);
       setViewYear(viewYear + 1);
+      resetSelectedDate(viewYear + 1, 0);
     } else {
       setViewMonth(viewMonth + 1);
+      resetSelectedDate(viewYear, viewMonth + 1);
     }
   };
 
