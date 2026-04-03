@@ -124,7 +124,8 @@
     "feature3Title": "\u4e00\u6b21\u6027\u8d2d\u4e70",
     "feature3Desc": "\u53ea\u4ed8\u4e00\u6b21\uff0c\u6c38\u4e45\u4f7f\u7528\u3002",
     "getStarted": "\u5f00\u59cb\u4f7f\u7528",
-    "alreadyHaveAccount": "\u5df2\u6709\u8d26\u53f7\uff1f\u767b\u5f55"
+    "alreadyHaveAccountPrefix": "\u5df2\u6709\u8d26\u53f7\uff1f",
+    "signIn": "\u767b\u5f55"
   },
   "permissions": {
     "deniedTitle": "\u9700\u8981\u6743\u9650",

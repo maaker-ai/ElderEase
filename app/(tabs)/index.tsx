@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Platform } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, Pressable, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { Pill, HeartPulse, Droplets, Syringe, Thermometer, Activity, Check } from 'lucide-react-native';
@@ -41,15 +41,18 @@ export default function TodayScreen() {
   const totalCount = todayRecords.length;
   const percentage = totalCount > 0 ? Math.round((takenCount / totalCount) * 100) : 0;
 
-  const handleTake = useCallback((medId: string, time: string) => {
+  const handleTake = (medId: string, time: string) => {
     if (takingRef.current) return;
     takingRef.current = true;
-    if (Platform.OS === 'ios') {
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+    try {
+      if (Platform.OS === 'ios') {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+      }
+      takeDose(medId, today, time);
+    } finally {
+      setTimeout(() => { takingRef.current = false; }, 300);
     }
-    takeDose(medId, today, time);
-    setTimeout(() => { takingRef.current = false; }, 500);
-  }, [today, takeDose]);
+  };
 
   // Build dose cards: group by med, show each time slot
   const doseCards: Array<{
@@ -349,10 +352,11 @@ export default function TodayScreen() {
 
               {/* Take Now button */}
               {!isTaken && (
-                <TouchableOpacity
+                <Pressable
                   onPress={() => handleTake(med.id, record.scheduledTime)}
-                  activeOpacity={0.8}
-                  style={{
+                  accessibilityRole="button"
+                  accessibilityLabel={t('today.takeNow')}
+                  style={({ pressed }) => ({
                     backgroundColor: Colors.primary,
                     borderRadius: 14,
                     height: 54,
@@ -361,7 +365,8 @@ export default function TodayScreen() {
                     flexDirection: 'row',
                     gap: 8,
                     marginTop: 12,
-                  }}
+                    opacity: pressed ? 0.8 : 1,
+                  })}
                 >
                   <Check size={20} color="#FFFFFF" strokeWidth={2.5} />
                   <Text
@@ -373,7 +378,7 @@ export default function TodayScreen() {
                   >
                     {t('today.takeNow')}
                   </Text>
-                </TouchableOpacity>
+                </Pressable>
               )}
             </View>
           );

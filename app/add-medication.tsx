@@ -40,6 +40,7 @@ export default function AddMedicationScreen() {
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [editingTimeIdx, setEditingTimeIdx] = useState(-1);
   const [showUnitPicker, setShowUnitPicker] = useState(false);
+  const [nameFieldFocused, setNameFieldFocused] = useState(false);
 
   const savingRef = useRef(false);
 
@@ -193,8 +194,8 @@ export default function AddMedicationScreen() {
               activeOpacity={0.7}
               style={{
                 backgroundColor: Colors.upcoming,
-                borderRadius: 10,
-                paddingHorizontal: 16,
+                borderRadius: 12,
+                paddingHorizontal: 14,
                 paddingVertical: 8,
               }}
             >
@@ -258,7 +259,7 @@ export default function AddMedicationScreen() {
                   height: 60,
                   paddingHorizontal: 20,
                   borderWidth: 2,
-                  borderColor: name ? Colors.primary : Colors.cardBorder,
+                  borderColor: nameFieldFocused || name ? Colors.primary : Colors.cardBorder,
                   gap: 12,
                 }}
               >
@@ -266,6 +267,8 @@ export default function AddMedicationScreen() {
                 <TextInput
                   value={name}
                   onChangeText={setName}
+                  onFocus={() => setNameFieldFocused(true)}
+                  onBlur={() => setNameFieldFocused(false)}
                   placeholder={t('addMed.namePlaceholder')}
                   placeholderTextColor={Colors.textPlaceholder}
                   returnKeyType="next"

@@ -124,7 +124,8 @@
     "feature3Title": "One-Time Purchase",
     "feature3Desc": "Pay once. Yours forever.",
     "getStarted": "Get Started",
-    "alreadyHaveAccount": "Already have an account? Sign In"
+    "alreadyHaveAccountPrefix": "Already have an account?",
+    "signIn": "Sign In"
   },
   "permissions": {
     "deniedTitle": "Permission Required",

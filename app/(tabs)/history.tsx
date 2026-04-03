@@ -92,6 +92,16 @@ export default function HistoryScreen() {
     }
   };
 
+  const getDayTextColor = (status: string, isToday: boolean) => {
+    if (isToday) return Colors.primary;
+    switch (status) {
+      case 'all': return Colors.success;
+      case 'missed': return Colors.error;
+      case 'upcoming': return Colors.textPlaceholder;
+      default: return Colors.textPrimary;
+    }
+  };
+
   // Selected date detail
   const selectedRecords = doseRecords.filter((r) => r.scheduledDate === selectedDate);
   const selectedTaken = selectedRecords.filter((r) => r.status === 'taken').length;
@@ -224,7 +234,7 @@ export default function HistoryScreen() {
                       style={{
                         fontFamily: isToday ? Fonts.manrope.extraBold : Fonts.manrope.semiBold,
                         fontSize: 16,
-                        color: isToday ? Colors.primary : Colors.textPrimary,
+                        color: getDayTextColor(status, isToday),
                       }}
                     >
                       {day.day}

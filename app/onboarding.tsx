@@ -198,7 +198,10 @@ export default function OnboardingScreen() {
               textAlign: 'center',
             }}
           >
-            {t('onboarding.alreadyHaveAccount')}
+            {t('onboarding.alreadyHaveAccountPrefix')}{' '}
+            <Text style={{ color: Colors.primary, fontFamily: Fonts.inter.semiBold }}>
+              {t('onboarding.signIn')}
+            </Text>
           </Text>
         </View>
       </View>
