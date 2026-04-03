@@ -199,7 +199,17 @@ export default function SettingsScreen() {
             iconColor={Colors.primary}
             iconBg={Colors.primaryLight}
             label={t('settings.reminderSound')}
-            value={soundLabel}
+            rightElement={
+              <Text
+                style={{
+                  fontFamily: Fonts.manrope.bold,
+                  fontSize: 14,
+                  color: Colors.primary,
+                }}
+              >
+                {soundLabel}
+              </Text>
+            }
             onPress={() => {
               const idx = SOUNDS.indexOf(reminderSound);
               setReminderSound(SOUNDS[(idx + 1) % SOUNDS.length]);
@@ -211,7 +221,17 @@ export default function SettingsScreen() {
             iconColor={Colors.primary}
             iconBg={Colors.primaryLight}
             label={t('settings.earlyReminder')}
-            value={earlyLabel}
+            rightElement={
+              <Text
+                style={{
+                  fontFamily: Fonts.manrope.bold,
+                  fontSize: 14,
+                  color: Colors.primary,
+                }}
+              >
+                {earlyLabel}
+              </Text>
+            }
             onPress={() => {
               const idx = EARLY_OPTIONS.indexOf(earlyReminder);
               setEarlyReminder(EARLY_OPTIONS[(idx + 1) % EARLY_OPTIONS.length]);
