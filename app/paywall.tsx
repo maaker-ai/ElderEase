@@ -23,8 +23,12 @@ export default function PaywallScreen() {
         setUnlimited(true);
         router.back();
       }
-    } catch (e) {
-      console.warn('Purchase failed:', e);
+      // success === false means user cancelled, no alert needed
+    } catch (e: any) {
+      Alert.alert(
+        t('paywall.purchaseFailedTitle'),
+        t('paywall.purchaseFailedMessage')
+      );
     }
     buyingRef.current = false;
   };
@@ -35,7 +39,7 @@ export default function PaywallScreen() {
       setUnlimited(true);
       router.back();
     } else {
-      Alert.alert('', 'No previous purchase found.');
+      Alert.alert('', t('paywall.noPreviousPurchase'));
     }
   };
 
@@ -290,7 +294,7 @@ export default function PaywallScreen() {
             </TouchableOpacity>
 
             <View style={{ flexDirection: 'row', gap: 16 }}>
-              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/privacy')}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/privacy/elderease')}>
                 <Text
                   style={{
                     fontFamily: Fonts.inter.regular,
@@ -301,7 +305,7 @@ export default function PaywallScreen() {
                   {t('paywall.privacyPolicy')}
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/terms')}>
+              <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('https://maaker.ai/terms/elderease')}>
                 <Text
                   style={{
                     fontFamily: Fonts.inter.regular,

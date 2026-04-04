@@ -1,0 +1,20 @@
+{
+  "uploaded_at": "2026-04-04T00:30:00Z",
+  "build_number": "7",
+  "version": "1.0.0",
+  "eas_submission_id": "251dc40c-5476-43db-a996-463ce873660f",
+  "asc_app_id": "6761602083",
+  "testflight_url": "https://appstoreconnect.apple.com/apps/6761602083/testflight/ios",
+  "ipa_path": "build-1775233587678.ipa",
+  "status": "processing",
+  "iap_preflight": {
+    "required": true,
+    "revenuecat_project": "projae09920a",
+    "revenuecat_api_key": "appl_RzZRwcUgleScKvOOsoyqnGDOzVq",
+    "revenuecat_product": "elderease_unlimited_999",
+    "revenuecat_entitlement": "unlimited",
+    "revenuecat_offering_ready": true,
+    "apple_product_exists": false,
+    "apple_product_note": "Need to create elderease_unlimited_999 in App Store Connect IAP section"
+  }
+}

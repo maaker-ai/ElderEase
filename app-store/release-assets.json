@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-04-03T15:45:00Z",
+  "icon": {
+    "path": "assets/icon.png",
+    "verified": true,
+    "description": "Orange gradient background with white pill + checkmark icon"
+  },
+  "splash_icon": {
+    "path": "assets/splash-icon.png",
+    "verified": true,
+    "description": "Replaced Expo placeholder with brand icon"
+  },
+  "adaptive_icon": {
+    "path": "assets/adaptive-icon.png",
+    "verified": true,
+    "description": "Replaced Expo placeholder with brand icon"
+  },
+  "screenshots": {
+    "status": "not_generated",
+    "note": "Beta phase - screenshots will be generated for store submission"
+  }
+}

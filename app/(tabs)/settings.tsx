@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Switch, Alert, Linking } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Alert, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Volume2, Clock, Type, Sun, ChevronRight, Shield, RotateCcw,
+  Volume2, Clock, ChevronRight, Shield, RotateCcw, CircleCheck,
 } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
-import { useColors } from '@/hooks/useColors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { ReminderSound, EarlyReminder, TextSizeOption } from '@/types';
+import { ReminderSound, EarlyReminder } from '@/types';
 import { restorePurchases } from '@/utils/purchases';
 
 const SOUNDS: ReminderSound[] = ['gentle', 'chime', 'alert', 'none'];
 const EARLY_OPTIONS: EarlyReminder[] = [0, 5, 10, 15, 30];
-const TEXT_SIZES: TextSizeOption[] = ['default', 'large', 'extra-large'];
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
   const {
     reminderSound, setReminderSound,
     earlyReminder, setEarlyReminder,
-    textSize, setTextSize,
-    highContrast, setHighContrast,
     isUnlimited,
   } = useAppStore();
-
-  const C = useColors();
 
   const [showSoundPicker, setShowSoundPicker] = useState(false);
   const [showEarlyPicker, setShowEarlyPicker] = useState(false);
@@ -36,7 +31,9 @@ export default function SettingsScreen() {
     const success = await restorePurchases();
     if (success) {
       useAppStore.getState().setUnlimited(true);
-      Alert.alert('', t('paywall.restorePurchase'));
+      Alert.alert('', t('settings.restoreSuccess'));
+    } else {
+      Alert.alert('', t('paywall.noPreviousPurchase'));
     }
   };
 
@@ -44,21 +41,13 @@ export default function SettingsScreen() {
   const earlyLabel = earlyReminder === 0
     ? t('settings.off')
     : t('settings.minutesBefore', { count: earlyReminder });
-  const textSizeLabel = (() => {
-    switch (textSize) {
-      case 'default': return t('settings.default');
-      case 'large': return t('settings.large');
-      case 'extra-large': return t('settings.extraLarge');
-    }
-  })();
-
   const SectionLabel = ({ text }: { text: string }) => (
     <Text
       style={{
         fontFamily: Fonts.manrope.bold,
         fontSize: 12,
         letterSpacing: 2,
-        color: C.textPlaceholder,
+        color: Colors.textPlaceholder,
         marginTop: 12,
         marginBottom: 8,
       }}
@@ -73,7 +62,7 @@ export default function SettingsScreen() {
         backgroundColor: Colors.card,
         borderRadius: 20,
         borderWidth: 1,
-        borderColor: C.cardBorder,
+        borderColor: Colors.cardBorder,
         overflow: 'hidden',
       }}
     >
@@ -126,7 +115,7 @@ export default function SettingsScreen() {
           style={{
             fontFamily: Fonts.manrope.semiBold,
             fontSize: 16,
-            color: C.textPrimary,
+            color: Colors.textPrimary,
           }}
         >
           {label}
@@ -136,14 +125,14 @@ export default function SettingsScreen() {
             style={{
               fontFamily: Fonts.inter.regular,
               fontSize: 14,
-              color: C.textSecondary,
+              color: Colors.textSecondary,
             }}
           >
             {value}
           </Text>
         )}
       </View>
-      {rightElement || (onPress && <ChevronRight size={20} color={C.textPlaceholder} strokeWidth={2} />)}
+      {rightElement || (onPress && <ChevronRight size={20} color={Colors.textPlaceholder} strokeWidth={2} />)}
     </TouchableOpacity>
   );
 
@@ -161,7 +150,7 @@ export default function SettingsScreen() {
           style={{
             fontFamily: Fonts.manrope.extraBold,
             fontSize: 30,
-            color: C.textPrimary,
+            color: Colors.textPrimary,
             letterSpacing: -0.5,
             paddingTop: 16,
           }}
@@ -169,8 +158,89 @@ export default function SettingsScreen() {
           {t('settings.title')}
         </Text>
 
-        {/* Upgrade button if not pro */}
-        {!isUnlimited && (
+        {/* Pro status card or upgrade button */}
+        {isUnlimited ? (
+          <LinearGradient
+            colors={['#FEF3C7', '#FDE68A']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={{
+              borderRadius: 20,
+              borderWidth: 1,
+              borderColor: Colors.primary,
+              padding: 20,
+              marginTop: 16,
+              flexDirection: 'row',
+              alignItems: 'flex-start',
+              gap: 14,
+            }}
+          >
+            <View
+              style={{
+                width: 44,
+                height: 44,
+                borderRadius: 14,
+                backgroundColor: Colors.primary,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <CircleCheck size={24} color="#FFFFFF" strokeWidth={2} />
+            </View>
+            <View style={{ flex: 1, gap: 2 }}>
+              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Text
+                  style={{
+                    fontFamily: Fonts.manrope.extraBold,
+                    fontSize: 20,
+                    color: Colors.textPrimary,
+                  }}
+                >
+                  {t('settings.proActiveTitle')}
+                </Text>
+                <View
+                  style={{
+                    backgroundColor: Colors.primary,
+                    borderRadius: 10,
+                    paddingHorizontal: 10,
+                    paddingVertical: 3,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: Fonts.manrope.bold,
+                      fontSize: 11,
+                      color: '#FFFFFF',
+                      letterSpacing: 0.5,
+                    }}
+                  >
+                    PRO
+                  </Text>
+                </View>
+              </View>
+              <Text
+                style={{
+                  fontFamily: Fonts.inter.regular,
+                  fontSize: 13,
+                  color: Colors.primary,
+                }}
+              >
+                {t('settings.proActiveSubtitle')}
+              </Text>
+              <Text
+                style={{
+                  fontFamily: Fonts.inter.regular,
+                  fontSize: 13,
+                  color: Colors.textSecondary,
+                  marginTop: 4,
+                  lineHeight: 18,
+                }}
+              >
+                {t('settings.proActiveDesc')}
+              </Text>
+            </View>
+          </LinearGradient>
+        ) : (
           <TouchableOpacity
             onPress={() => router.push('/paywall')}
             activeOpacity={0.8}
@@ -242,48 +312,6 @@ export default function SettingsScreen() {
           />
         </SettingsCard>
 
-        {/* Display */}
-        <SectionLabel text={t('settings.display')} />
-        <SettingsCard>
-          <SettingsRow
-            icon={<Type size={20} color={Colors.primary} strokeWidth={2} />}
-            iconColor={Colors.primary}
-            iconBg={Colors.primaryLight}
-            label={t('settings.textSize')}
-            rightElement={
-              <Text
-                style={{
-                  fontFamily: Fonts.manrope.bold,
-                  fontSize: 14,
-                  color: Colors.primary,
-                }}
-              >
-                {textSizeLabel}
-              </Text>
-            }
-            onPress={() => {
-              const idx = TEXT_SIZES.indexOf(textSize);
-              setTextSize(TEXT_SIZES[(idx + 1) % TEXT_SIZES.length]);
-            }}
-          />
-          <Divider />
-          <SettingsRow
-            icon={<Sun size={20} color={Colors.primary} strokeWidth={2} />}
-            iconColor={Colors.primary}
-            iconBg={Colors.primaryLight}
-            label={t('settings.highContrast')}
-            onPress={() => setHighContrast(!highContrast)}
-            rightElement={
-              <Switch
-                value={highContrast}
-                onValueChange={setHighContrast}
-                trackColor={{ false: Colors.cardBorder, true: Colors.primary }}
-                thumbColor="#FFFFFF"
-              />
-            }
-          />
-        </SettingsCard>
-
         {/* About */}
         <SectionLabel text={t('settings.about')} />
         <SettingsCard>
@@ -310,16 +338,20 @@ export default function SettingsScreen() {
             iconColor={Colors.textSecondary}
             iconBg={Colors.upcoming}
             label={t('settings.privacyPolicy')}
-            onPress={() => Linking.openURL('https://maaker.ai/privacy')}
+            onPress={() => Linking.openURL('https://maaker.ai/privacy/elderease')}
           />
-          <Divider />
-          <SettingsRow
-            icon={<RotateCcw size={20} color={Colors.primary} strokeWidth={2} />}
-            iconColor={Colors.primary}
-            iconBg={Colors.primaryLight}
-            label={t('settings.restorePurchase')}
-            onPress={handleRestore}
-          />
+          {!isUnlimited && (
+            <>
+              <Divider />
+              <SettingsRow
+                icon={<RotateCcw size={20} color={Colors.primary} strokeWidth={2} />}
+                iconColor={Colors.primary}
+                iconBg={Colors.primaryLight}
+                label={t('settings.restorePurchase')}
+                onPress={handleRestore}
+              />
+            </>
+          )}
         </SettingsCard>
       </ScrollView>
     </SafeAreaView>

@@ -13,6 +13,7 @@ import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
 import { Medication } from '@/types';
 import { formatTime } from '@/utils/helpers';
+import { requestNotificationPermission } from '@/utils/notifications';
 
 type FreqType = 'daily' | 'every2days' | 'weekly';
 type UnitType = 'mg' | 'ml' | 'tablets';
@@ -44,7 +45,7 @@ export default function AddMedicationScreen() {
 
   const savingRef = useRef(false);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (savingRef.current) return;
     savingRef.current = true;
 
@@ -72,6 +73,9 @@ export default function AddMedicationScreen() {
       updateMedication(id, medData);
       router.back();
     } else {
+      // Request notification permission on first medication add (lazy request)
+      await requestNotificationPermission();
+
       const newId = addMedication(medData);
       if (newId === null) {
         // Hit free limit

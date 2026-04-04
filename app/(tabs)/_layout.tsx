@@ -27,6 +27,7 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
         bottom: 0,
         left: 0,
         right: 0,
+        zIndex: 999,
         backgroundColor: Colors.tabBarBg,
         paddingBottom: insets.bottom,
         shadowColor: '#000',
@@ -75,24 +76,25 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
                 alignItems: 'center',
                 borderRadius: 26,
                 backgroundColor: isFocused ? Colors.primary : 'transparent',
-                gap: 3,
               }}
             >
-              <Icon
-                size={20}
-                color={isFocused ? '#FFFFFF' : Colors.tabInactive}
-                strokeWidth={2}
-              />
-              <Text
-                style={{
-                  fontFamily: Fonts.manrope.bold,
-                  fontSize: 10,
-                  letterSpacing: 1,
-                  color: isFocused ? '#FFFFFF' : Colors.tabInactive,
-                }}
-              >
-                {label}
-              </Text>
+              <View pointerEvents="none" style={{ alignItems: 'center', gap: 3 }}>
+                <Icon
+                  size={20}
+                  color={isFocused ? '#FFFFFF' : Colors.tabInactive}
+                  strokeWidth={2}
+                />
+                <Text
+                  style={{
+                    fontFamily: Fonts.manrope.bold,
+                    fontSize: 10,
+                    letterSpacing: 1,
+                    color: isFocused ? '#FFFFFF' : Colors.tabInactive,
+                  }}
+                >
+                  {label}
+                </Text>
+              </View>
             </TouchableOpacity>
           );
         })}

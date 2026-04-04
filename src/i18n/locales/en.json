@@ -74,7 +74,11 @@
     "version": "Version",
     "privacyPolicy": "Privacy Policy",
     "restorePurchase": "Restore Purchase",
-    "upgradeToPro": "Upgrade to Unlimited"
+    "restoreSuccess": "Purchase restored successfully!",
+    "upgradeToPro": "Upgrade to Unlimited",
+    "proActiveTitle": "Unlimited",
+    "proActiveSubtitle": "PRO Active",
+    "proActiveDesc": "Unlimited medications unlocked. Thank you for your support."
   },
   "addMed": {
     "addTitle": "Add Medication",
@@ -112,7 +116,10 @@
     "restorePurchase": "Restore Previous Purchase",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
-    "limitReached": "You've reached the free limit of 3 medications. Upgrade to add unlimited medications."
+    "limitReached": "You've reached the free limit of 3 medications. Upgrade to add unlimited medications.",
+    "purchaseFailedTitle": "Purchase Failed",
+    "purchaseFailedMessage": "Something went wrong. Please try again later.",
+    "noPreviousPurchase": "No previous purchase found."
   },
   "onboarding": {
     "title": "Never Miss\na Dose",
@@ -137,5 +144,9 @@
     "chime": "Chime",
     "alert": "Alert",
     "none": "None"
+  },
+  "notifications": {
+    "title": "Time to take {{name}}",
+    "body": "{{dosage}}{{unit}} - Don't forget your medication!"
   }
 }

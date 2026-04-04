@@ -7,6 +7,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
+import { initPurchases, checkProStatus } from '@/utils/purchases';
+import { useAppStore } from '@/stores/useAppStore';
 import '@/i18n';
 
 if (Platform.OS !== 'web') {
@@ -30,6 +32,20 @@ export default function RootLayout() {
   const splashOpacity = useRef(new Animated.Value(1)).current;
   const iconScale = useRef(new Animated.Value(0.8)).current;
   const iconOpacity = useRef(new Animated.Value(0)).current;
+
+  // Initialize RevenueCat and check pro status
+  useEffect(() => {
+    initPurchases()
+      .then(() => checkProStatus())
+      .then((isPro) => {
+        if (isPro) {
+          useAppStore.getState().setUnlimited(true);
+        }
+      })
+      .catch((e) => {
+        console.warn('[Purchases] Init/check failed:', e?.message);
+      });
+  }, []);
 
   useEffect(() => {
     if (fontsLoaded) {

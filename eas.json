@@ -16,7 +16,8 @@
     "production": {
       "ios": {
         "appleId": "maruipeng@qq.com",
-        "appleTeamId": "2N748MS322"
+        "appleTeamId": "2N748MS322",
+        "ascAppId": "6761602083"
       }
     }
   }

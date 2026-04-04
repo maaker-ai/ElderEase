@@ -50,8 +50,8 @@ export async function scheduleNotificationsForMed(med: Medication): Promise<void
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: `Time to take ${med.name}`,
-        body: `${med.dosage}${med.unit} - Don't forget your medication!`,
+        title: i18n.t('notifications.title', { name: med.name }),
+        body: i18n.t('notifications.body', { dosage: med.dosage, unit: med.unit }),
         data: { medicationId: med.id },
       },
       trigger: {
