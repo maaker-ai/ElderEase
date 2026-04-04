@@ -1,34 +1,18 @@
-# What to Test - ElderEase v1.0.0 (Build 4)
+# What to Test - Build 14
 
-## Core Flow
-1. Complete onboarding (swipe through features, tap "Get Started")
-2. Add a medication (name, dosage, frequency, reminder time)
-3. Mark medication as taken from Today tab
-4. Check History tab for calendar view and dose records
-5. Navigate between all 4 tabs (Today / Meds / History / Settings)
+## 本轮主要改动
+- 修复内购失败问题（RevenueCat ASC API Key 未配置导致收据验证失败）
+- 设置页设计还原（Pro 卡片、DISPLAY 区块、About 区纯文字化）
+- 通知功能修复：提前提醒和铃声选择现在实际生效
+- 设置页多选项改为 ActionSheet 弹框交互
+- 修复 icon 资产文件格式（JPEG 误命名为 .png，已转换为真正 PNG）
 
-## Key Areas to Verify
+## 重点测试
+1. **内购流程**：点击"升级无限版" → 应正常弹出 Apple 支付面板
+2. **设置页**：检查提醒声音和提前提醒的 ActionSheet 弹框
+3. **通知**：添加药物后设置提前提醒，确认通知时间正确
+4. **Pro 状态**：购买后设置页应显示 DISPLAY 区块（字体大小 + 高对比度）
 
-### Medication Management
-- Add up to 3 medications (free limit)
-- Edit existing medication (tap card on Meds tab)
-- Delete medication (edit screen, scroll to bottom)
-
-### Paywall & Purchase
-- Adding 4th medication triggers Paywall
-- Settings > "Upgrade to Unlimited" opens Paywall
-- Purchase button shows appropriate feedback
-- Restore purchase works if previously purchased
-
-### Notifications
-- First medication add should request notification permission
-- If denied, shows alert with "Open Settings" option
-
-### Tab Navigation
-- All 4 tabs switch correctly
-- Tab Bar works when medication cards are visible on Today tab
-
-## Known Limitations (Beta)
-- Privacy policy page not yet deployed (links to maaker.ai homepage)
-- RevenueCat StoreKit product needs Apple App Store Connect setup for real purchase testing
-- Settings only shows Reminders and About sections (Display settings coming in future update)
+## 已知风险
+- 首次配置 RevenueCat ASC 凭据，需验证沙盒购买是否正常
+- peer dependency 警告（expo-linking、react-native-svg、react-native-worklets），功能测试时注意有无崩溃

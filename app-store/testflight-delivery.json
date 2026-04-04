@@ -1,20 +1,28 @@
 {
-  "uploaded_at": "2026-04-04T00:30:00Z",
-  "build_number": "7",
+  "uploaded_at": "2026-04-05T07:15:00Z",
+  "build_number": "14",
   "version": "1.0.0",
-  "eas_submission_id": "251dc40c-5476-43db-a996-463ce873660f",
+  "eas_submission_id": "61aa9f76-b88e-4e80-a3d4-5d5fca0f158c",
   "asc_app_id": "6761602083",
   "testflight_url": "https://appstoreconnect.apple.com/apps/6761602083/testflight/ios",
-  "ipa_path": "build-1775233587678.ipa",
+  "ipa_path": "build-1775344263776.ipa",
   "status": "processing",
   "iap_preflight": {
     "required": true,
+    "apple_product_exists": true,
+    "apple_product_state": "READY_TO_SUBMIT",
+    "revenuecat_current_offering_ready": true,
     "revenuecat_project": "projae09920a",
-    "revenuecat_api_key": "appl_RzZRwcUgleScKvOOsoyqnGDOzVq",
     "revenuecat_product": "elderease_unlimited_999",
-    "revenuecat_entitlement": "unlimited",
-    "revenuecat_offering_ready": true,
-    "apple_product_exists": false,
-    "apple_product_note": "Need to create elderease_unlimited_999 in App Store Connect IAP section"
+    "revenuecat_entitlement": "unlimited"
+  },
+  "build_notes": {
+    "fixes": [
+      "icon assets converted from JPEG to PNG format",
+      "ReactNativeDependencies.xcframework rebuilt via expo prebuild --clean",
+      "EAS autoIncrement caused buildNumber to reach 14 (started from 9)"
+    ],
+    "xcode_version": "26.4 (beta)",
+    "local_build": true
   }
 }
