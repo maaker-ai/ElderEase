@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Alert, Linking } from 'react-native';
+import React from 'react';
+import { View, Text, ScrollView, TouchableOpacity, Alert, Linking, Switch, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
-  Volume2, Clock, ChevronRight, Shield, RotateCcw, CircleCheck,
-  Sparkles, Crown,
+  ChevronRight, Sparkles, Crown, CircleCheck,
+  Type, Sun, BellRing, Timer,
 } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { ReminderSound, EarlyReminder } from '@/types';
+import { ReminderSound, EarlyReminder, TextSizeOption } from '@/types';
 import { restorePurchases } from '@/utils/purchases';
 
 const SOUNDS: ReminderSound[] = ['gentle', 'chime', 'alert', 'none'];
@@ -23,10 +23,9 @@ export default function SettingsScreen() {
     reminderSound, setReminderSound,
     earlyReminder, setEarlyReminder,
     isUnlimited,
+    textSize, setTextSize,
+    highContrast, setHighContrast,
   } = useAppStore();
-
-  const [showSoundPicker, setShowSoundPicker] = useState(false);
-  const [showEarlyPicker, setShowEarlyPicker] = useState(false);
 
   const handleRestore = async () => {
     const success = await restorePurchases();
@@ -76,14 +75,20 @@ export default function SettingsScreen() {
     iconColor,
     iconBg,
     label,
+    labelColor,
+    labelFontSize,
+    labelFontFamily,
     value,
     onPress,
     rightElement,
   }: {
-    icon: React.ReactNode;
-    iconColor: string;
-    iconBg: string;
+    icon?: React.ReactNode;
+    iconColor?: string;
+    iconBg?: string;
     label: string;
+    labelColor?: string;
+    labelFontSize?: number;
+    labelFontFamily?: string;
     value?: string;
     onPress?: () => void;
     rightElement?: React.ReactNode;
@@ -99,24 +104,26 @@ export default function SettingsScreen() {
         gap: 12,
       }}
     >
-      <View
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: 12,
-          backgroundColor: iconBg,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        {icon}
-      </View>
+      {icon && iconBg && (
+        <View
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 10,
+            backgroundColor: iconBg,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          {icon}
+        </View>
+      )}
       <View style={{ flex: 1, gap: 2 }}>
         <Text
           style={{
-            fontFamily: Fonts.manrope.semiBold,
-            fontSize: 16,
-            color: Colors.textPrimary,
+            fontFamily: labelFontFamily || Fonts.manrope.bold,
+            fontSize: labelFontSize || 18,
+            color: labelColor || Colors.textPrimary,
           }}
         >
           {label}
@@ -137,9 +144,14 @@ export default function SettingsScreen() {
     </TouchableOpacity>
   );
 
-  const Divider = () => (
-    <View style={{ height: 1, backgroundColor: Colors.divider, marginLeft: 72 }} />
+  const Divider = ({ fullWidth }: { fullWidth?: boolean }) => (
+    <View style={{ height: 1, backgroundColor: Colors.divider, marginLeft: fullWidth ? 0 : 72 }} />
   );
+
+  const TEXT_SIZE_OPTIONS: TextSizeOption[] = ['default', 'large', 'extra-large'];
+  const textSizeLabel = t(`settings.${textSize === 'extra-large' ? 'extraLarge' : textSize}`);
+
+  const textSizeSliderPosition = textSize === 'default' ? 0 : textSize === 'large' ? 0.5 : 1;
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
@@ -167,78 +179,82 @@ export default function SettingsScreen() {
             end={{ x: 1, y: 1 }}
             style={{
               borderRadius: 20,
-              borderWidth: 1,
+              borderWidth: 1.5,
               borderColor: Colors.primary,
               padding: 20,
               marginTop: 16,
-              flexDirection: 'row',
-              alignItems: 'flex-start',
-              gap: 14,
+              gap: 4,
             }}
           >
-            <View
-              style={{
-                width: 44,
-                height: 44,
-                borderRadius: 14,
-                backgroundColor: Colors.primary,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <CircleCheck size={24} color="#FFFFFF" strokeWidth={2} />
-            </View>
-            <View style={{ flex: 1, gap: 2 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text
-                  style={{
-                    fontFamily: Fonts.manrope.extraBold,
-                    fontSize: 20,
-                    color: Colors.textPrimary,
-                  }}
-                >
-                  {t('settings.proActiveTitle')}
-                </Text>
-                <View
-                  style={{
-                    backgroundColor: Colors.primary,
-                    borderRadius: 10,
-                    paddingHorizontal: 10,
-                    paddingVertical: 3,
-                  }}
-                >
-                  <Text
+            <View style={{ flexDirection: 'row', alignItems: 'flex-start', gap: 12, width: '100%' }}>
+              <View
+                style={{
+                  width: 44,
+                  height: 44,
+                  borderRadius: 12,
+                  backgroundColor: Colors.primary,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <CircleCheck size={24} color="#FFFFFF" strokeWidth={2} />
+              </View>
+              <View style={{ flex: 1 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.manrope.extraBold,
+                        fontSize: 20,
+                        color: '#92400E',
+                        letterSpacing: -0.3,
+                      }}
+                    >
+                      {t('settings.proActiveTitle')}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.inter.bold,
+                        fontSize: 12,
+                        color: '#B45309',
+                        letterSpacing: 1.5,
+                      }}
+                    >
+                      {t('settings.proActiveSubtitle')}
+                    </Text>
+                  </View>
+                  <View
                     style={{
-                      fontFamily: Fonts.manrope.bold,
-                      fontSize: 11,
-                      color: '#FFFFFF',
-                      letterSpacing: 0.5,
+                      backgroundColor: Colors.primary,
+                      borderRadius: 20,
+                      paddingHorizontal: 12,
+                      paddingVertical: 6,
                     }}
                   >
-                    PRO
-                  </Text>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.manrope.extraBold,
+                        fontSize: 13,
+                        color: '#FFFFFF',
+                        letterSpacing: 1,
+                      }}
+                    >
+                      PRO
+                    </Text>
+                  </View>
                 </View>
+                <Text
+                  style={{
+                    fontFamily: Fonts.inter.regular,
+                    fontSize: 14,
+                    color: '#92400E',
+                    marginTop: 4,
+                    lineHeight: 14 * 1.4,
+                  }}
+                >
+                  {t('settings.proActiveDesc')}
+                </Text>
               </View>
-              <Text
-                style={{
-                  fontFamily: Fonts.inter.regular,
-                  fontSize: 13,
-                  color: Colors.primary,
-                }}
-              >
-                {t('settings.proActiveSubtitle')}
-              </Text>
-              <Text
-                style={{
-                  fontFamily: Fonts.inter.regular,
-                  fontSize: 13,
-                  color: Colors.textSecondary,
-                  marginTop: 4,
-                  lineHeight: 18,
-                }}
-              >
-                {t('settings.proActiveDesc')}
-              </Text>
             </View>
           </LinearGradient>
         ) : (
@@ -367,21 +383,10 @@ export default function SettingsScreen() {
         <SectionLabel text={t('settings.reminders')} />
         <SettingsCard>
           <SettingsRow
-            icon={<Volume2 size={20} color={Colors.primary} strokeWidth={2} />}
-            iconColor={Colors.primary}
+            icon={<BellRing size={20} color={Colors.primary} strokeWidth={2} />}
             iconBg={Colors.primaryLight}
             label={t('settings.reminderSound')}
-            rightElement={
-              <Text
-                style={{
-                  fontFamily: Fonts.manrope.bold,
-                  fontSize: 14,
-                  color: Colors.primary,
-                }}
-              >
-                {soundLabel}
-              </Text>
-            }
+            value={soundLabel}
             onPress={() => {
               const idx = SOUNDS.indexOf(reminderSound);
               setReminderSound(SOUNDS[(idx + 1) % SOUNDS.length]);
@@ -389,21 +394,10 @@ export default function SettingsScreen() {
           />
           <Divider />
           <SettingsRow
-            icon={<Clock size={20} color={Colors.primary} strokeWidth={2} />}
-            iconColor={Colors.primary}
+            icon={<Timer size={20} color={Colors.primary} strokeWidth={2} />}
             iconBg={Colors.primaryLight}
             label={t('settings.earlyReminder')}
-            rightElement={
-              <Text
-                style={{
-                  fontFamily: Fonts.manrope.bold,
-                  fontSize: 14,
-                  color: Colors.primary,
-                }}
-              >
-                {earlyLabel}
-              </Text>
-            }
+            value={earlyLabel}
             onPress={() => {
               const idx = EARLY_OPTIONS.indexOf(earlyReminder);
               setEarlyReminder(EARLY_OPTIONS[(idx + 1) % EARLY_OPTIONS.length]);
@@ -411,13 +405,141 @@ export default function SettingsScreen() {
           />
         </SettingsCard>
 
+        {/* Display (Pro only) */}
+        {isUnlimited && (
+          <>
+            <SectionLabel text={t('settings.display')} />
+            <SettingsCard>
+              {/* Text Size row with slider */}
+              <View style={{ paddingVertical: 18, paddingHorizontal: 20, gap: 12 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                    <View
+                      style={{
+                        width: 40,
+                        height: 40,
+                        borderRadius: 10,
+                        backgroundColor: Colors.purpleLight,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <Type size={20} color="#8B5CF6" strokeWidth={2} />
+                    </View>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.manrope.bold,
+                        fontSize: 18,
+                        color: Colors.textPrimary,
+                      }}
+                    >
+                      {t('settings.textSize')}
+                    </Text>
+                  </View>
+                  <Text
+                    style={{
+                      fontFamily: Fonts.inter.medium,
+                      fontSize: 14,
+                      color: Colors.primary,
+                    }}
+                  >
+                    {textSizeLabel}
+                  </Text>
+                </View>
+                {/* Slider track */}
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    const idx = TEXT_SIZE_OPTIONS.indexOf(textSize);
+                    setTextSize(TEXT_SIZE_OPTIONS[(idx + 1) % TEXT_SIZE_OPTIONS.length]);
+                  }}
+                  style={{ height: 24, justifyContent: 'center' }}
+                >
+                  <View
+                    style={{
+                      height: 6,
+                      borderRadius: 3,
+                      backgroundColor: Colors.cardBorder,
+                      width: '100%',
+                    }}
+                  >
+                    <View
+                      style={{
+                        height: 6,
+                        borderRadius: 3,
+                        backgroundColor: Colors.primary,
+                        width: `${textSizeSliderPosition * 100}%`,
+                      }}
+                    />
+                  </View>
+                  <View
+                    style={[
+                      {
+                        position: 'absolute',
+                        left: `${textSizeSliderPosition * 100}%`,
+                        marginLeft: -12,
+                        width: 24,
+                        height: 24,
+                        borderRadius: 12,
+                        backgroundColor: Colors.primary,
+                      },
+                      Platform.OS === 'ios'
+                        ? { shadowColor: '#F59E0B', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.4, shadowRadius: 8 }
+                        : { elevation: 4 },
+                    ]}
+                  />
+                </TouchableOpacity>
+              </View>
+              <Divider />
+              {/* High Contrast row with toggle */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  paddingVertical: 18,
+                  paddingHorizontal: 20,
+                  gap: 12,
+                  justifyContent: 'space-between',
+                }}
+              >
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                  <View
+                    style={{
+                      width: 40,
+                      height: 40,
+                      borderRadius: 10,
+                      backgroundColor: Colors.successLight,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Sun size={20} color={Colors.success} strokeWidth={2} />
+                  </View>
+                  <Text
+                    style={{
+                      fontFamily: Fonts.manrope.bold,
+                      fontSize: 18,
+                      color: Colors.textPrimary,
+                    }}
+                  >
+                    {t('settings.highContrast')}
+                  </Text>
+                </View>
+                <Switch
+                  value={highContrast}
+                  onValueChange={setHighContrast}
+                  trackColor={{ false: Colors.cardBorder, true: Colors.primary }}
+                  thumbColor="#FFFFFF"
+                />
+              </View>
+            </SettingsCard>
+          </>
+        )}
+
         {/* About */}
         <SectionLabel text={t('settings.about')} />
         <SettingsCard>
           <SettingsRow
-            icon={<Shield size={20} color={Colors.textSecondary} strokeWidth={2} />}
-            iconColor={Colors.textSecondary}
-            iconBg={Colors.upcoming}
             label={t('settings.version')}
             rightElement={
               <Text
@@ -431,23 +553,19 @@ export default function SettingsScreen() {
               </Text>
             }
           />
-          <Divider />
+          <Divider fullWidth />
           <SettingsRow
-            icon={<Shield size={20} color={Colors.textSecondary} strokeWidth={2} />}
-            iconColor={Colors.textSecondary}
-            iconBg={Colors.upcoming}
             label={t('settings.privacyPolicy')}
             onPress={() => Linking.openURL('https://maaker.ai/privacy/elderease')}
           />
           {!isUnlimited && (
             <>
-              <Divider />
+              <Divider fullWidth />
               <SettingsRow
-                icon={<RotateCcw size={20} color={Colors.primary} strokeWidth={2} />}
-                iconColor={Colors.primary}
-                iconBg={Colors.primaryLight}
                 label={t('settings.restorePurchase')}
+                labelColor={Colors.primary}
                 onPress={handleRestore}
+                rightElement={<ChevronRight size={20} color={Colors.primary} strokeWidth={2} />}
               />
             </>
           )}

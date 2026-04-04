@@ -193,9 +193,17 @@ export const useAppStore = create<AppState>()(
 
       // Settings
       reminderSound: 'gentle',
-      setReminderSound: (sound) => set({ reminderSound: sound }),
+      setReminderSound: (sound) => {
+        set({ reminderSound: sound });
+        const meds = get().medications;
+        meds.forEach((med) => scheduleNotificationsForMed(med).catch(console.warn));
+      },
       earlyReminder: 5,
-      setEarlyReminder: (minutes) => set({ earlyReminder: minutes }),
+      setEarlyReminder: (minutes) => {
+        set({ earlyReminder: minutes });
+        const meds = get().medications;
+        meds.forEach((med) => scheduleNotificationsForMed(med).catch(console.warn));
+      },
       textSize: 'default',
       setTextSize: (size) => set({ textSize: size }),
       highContrast: false,

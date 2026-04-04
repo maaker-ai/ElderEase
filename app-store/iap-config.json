@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-04-05T12:00:00Z",
+  "monetization": "freemium_lifetime",
+  "apple": {
+    "product_id": "elderease_unlimited_999",
+    "state": "READY_TO_SUBMIT"
+  },
+  "revenuecat": {
+    "project_id": "projae09920a",
+    "app_id": "app70ef9b9ad1",
+    "product_id": "prodf9570fab1e",
+    "store_identifier": "elderease_unlimited_999",
+    "offering_ready": true,
+    "package": "$rc_lifetime",
+    "entitlement_lookup_key": "unlimited",
+    "asc_api_key_configured": true,
+    "subscription_key_configured": true
+  },
+  "paywall": {
+    "price_matches_notion": true
+  },
+  "status": "pass",
+  "fix_applied": "2026-04-05: configured ASC API Key + Subscription Key on RevenueCat app (both were missing, causing receipt validation failure)"
+}
