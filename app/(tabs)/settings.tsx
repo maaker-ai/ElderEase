@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Alert, Linking, Switch, Platform } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Alert, Linking, Switch, Platform, ActionSheetIOS } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -388,8 +388,16 @@ export default function SettingsScreen() {
             label={t('settings.reminderSound')}
             value={soundLabel}
             onPress={() => {
-              const idx = SOUNDS.indexOf(reminderSound);
-              setReminderSound(SOUNDS[(idx + 1) % SOUNDS.length]);
+              const options = SOUNDS.map((s) => t(`sounds.${s}`));
+              options.push(t('common.cancel'));
+              ActionSheetIOS.showActionSheetWithOptions(
+                { options, cancelButtonIndex: options.length - 1 },
+                (index) => {
+                  if (index !== options.length - 1) {
+                    setReminderSound(SOUNDS[index]);
+                  }
+                },
+              );
             }}
           />
           <Divider />
@@ -399,8 +407,18 @@ export default function SettingsScreen() {
             label={t('settings.earlyReminder')}
             value={earlyLabel}
             onPress={() => {
-              const idx = EARLY_OPTIONS.indexOf(earlyReminder);
-              setEarlyReminder(EARLY_OPTIONS[(idx + 1) % EARLY_OPTIONS.length]);
+              const options = EARLY_OPTIONS.map((m) =>
+                m === 0 ? t('settings.off') : t('settings.minutesBefore', { count: m }),
+              );
+              options.push(t('common.cancel'));
+              ActionSheetIOS.showActionSheetWithOptions(
+                { options, cancelButtonIndex: options.length - 1 },
+                (index) => {
+                  if (index !== options.length - 1) {
+                    setEarlyReminder(EARLY_OPTIONS[index]);
+                  }
+                },
+              );
             }}
           />
         </SettingsCard>
