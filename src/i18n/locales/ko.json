@@ -27,9 +27,10 @@
     "dueNow": "복용 시간",
     "dueIn": "{{time}} 후",
     "overdue": "지났음",
-    "noMeds": "오늘 예정된 약이 없습니다",
+    "noMeds": "오늘 복용 예정이 없습니다",
     "noMedsDesc": "첫 번째 약을 추가하세요",
-    "addFirst": "약 추가"
+    "addFirst": "약 추가",
+    "addMed": "약 추가"
   },
   "meds": {
     "title": "모든 약",
@@ -39,8 +40,8 @@
     "everyDay": "매일",
     "every2Days": "2일마다",
     "weekly": "매주",
-    "noMeds": "약이 없습니다",
-    "noMedsDesc": "+를 눌러 추가하세요"
+    "noMeds": "등록된 약이 없습니다",
+    "noMedsDesc": "위의 + 버튼을 눌러 첫 번째 약을 추가하세요"
   },
   "history": {
     "title": "기록",
@@ -55,7 +56,7 @@
     "takenAt": "{{time}}에 복용",
     "missedAt": "누락 — {{time}}",
     "noHistory": "기록이 없습니다",
-    "noHistoryDesc": "복약 기록이 여기에 표시됩니다"
+    "noHistoryDesc": "약을 추가하고 제시간에 복용하면 기록이 여기에 표시됩니다"
   },
   "settings": {
     "title": "설정",
@@ -137,8 +138,8 @@
     "signIn": "로그인"
   },
   "permissions": {
-    "deniedTitle": "권한 필요",
-    "deniedMessage": "복약 알림에 알림 권한이 필요합니다. 설정에서 활성화해 주세요.",
+    "deniedTitle": "알림 권한 필요",
+    "deniedMessage": "복용 알림을 위해 알림 권한이 필요합니다. 설정에서 활성화해 주세요.",
     "openSettings": "설정 열기"
   },
   "sounds": {

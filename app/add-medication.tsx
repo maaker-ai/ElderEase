@@ -14,12 +14,14 @@ import { useAppStore } from '@/stores/useAppStore';
 import { Medication } from '@/types';
 import { formatTime } from '@/utils/helpers';
 import { requestNotificationPermission } from '@/utils/notifications';
+import { NotificationPermissionModal } from '@/components/NotificationPermissionModal';
 
 type FreqType = 'daily' | 'every2days' | 'weekly';
 type UnitType = 'mg' | 'ml' | 'tablets';
 
 export default function AddMedicationScreen() {
   const { t } = useTranslation();
+  const [showPermissionModal, setShowPermissionModal] = useState(false);
   const { id } = useLocalSearchParams<{ id?: string }>();
   const isEdit = !!id;
 
@@ -74,7 +76,7 @@ export default function AddMedicationScreen() {
       router.back();
     } else {
       // Request notification permission on first medication add (lazy request)
-      await requestNotificationPermission();
+      await requestNotificationPermission(() => setShowPermissionModal(true));
 
       const newId = addMedication(medData);
       if (newId === null) {
@@ -178,6 +180,7 @@ export default function AddMedicationScreen() {
   const units: UnitType[] = ['mg', 'ml', 'tablets'];
 
   return (
+    <>
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
         <KeyboardAvoidingView
           style={{ flex: 1 }}
@@ -536,6 +539,11 @@ export default function AddMedicationScreen() {
           )}
         </KeyboardAvoidingView>
     </SafeAreaView>
+    <NotificationPermissionModal
+      visible={showPermissionModal}
+      onClose={() => setShowPermissionModal(false)}
+    />
+    </>
   );
 }
 

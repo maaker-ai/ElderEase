@@ -27,9 +27,10 @@
     "dueNow": "現在服用",
     "dueIn": "{{time}}後服用",
     "overdue": "已過時",
-    "noMeds": "今天沒有安排用藥",
+    "noMeds": "今天沒有用藥安排",
     "noMedsDesc": "新增第一個藥物開始使用",
-    "addFirst": "新增藥物"
+    "addFirst": "新增藥物",
+    "addMed": "新增藥物"
   },
   "meds": {
     "title": "所有藥物",
@@ -39,8 +40,8 @@
     "everyDay": "每天",
     "every2Days": "每兩天",
     "weekly": "每週",
-    "noMeds": "尚無藥物",
-    "noMedsDesc": "點擊 + 新增第一個藥物"
+    "noMeds": "尚未新增藥物",
+    "noMedsDesc": "點擊上方的 + 按鈕新增第一個藥物"
   },
   "history": {
     "title": "歷史紀錄",
@@ -54,8 +55,8 @@
     "ofTaken": "已服 {{taken}}/{{total}}",
     "takenAt": "服用於 {{time}}",
     "missedAt": "漏服 — {{time}}",
-    "noHistory": "暫無歷史紀錄",
-    "noHistoryDesc": "您的用藥歷史將顯示在這裡"
+    "noHistory": "暫無紀錄",
+    "noHistoryDesc": "新增藥物並按時服用，您的用藥歷史將顯示在這裡"
   },
   "settings": {
     "title": "設定",
@@ -137,8 +138,8 @@
     "signIn": "登入"
   },
   "permissions": {
-    "deniedTitle": "需要權限",
-    "deniedMessage": "藥物提醒需要通知權限。請在設定中開啟。",
+    "deniedTitle": "需要通知權限",
+    "deniedMessage": "藥物提醒需要通知權限才能運作。請在設定中開啟。",
     "openSettings": "開啟設定"
   },
   "sounds": {

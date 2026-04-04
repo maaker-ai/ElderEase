@@ -27,9 +27,10 @@
     "dueNow": "Due now",
     "dueIn": "Due in {{time}}",
     "overdue": "Overdue",
-    "noMeds": "No medications scheduled today",
+    "noMeds": "No Medications Today",
     "noMedsDesc": "Add your first medication to get started",
-    "addFirst": "Add Medication"
+    "addFirst": "Add Medication",
+    "addMed": "Add Medication"
   },
   "meds": {
     "title": "All Medications",
@@ -39,8 +40,8 @@
     "everyDay": "Every day",
     "every2Days": "Every 2 days",
     "weekly": "Weekly",
-    "noMeds": "No medications yet",
-    "noMedsDesc": "Tap + to add your first medication"
+    "noMeds": "No Medications Added",
+    "noMedsDesc": "Tap the + button above to add your first medication"
   },
   "history": {
     "title": "History",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} of {{total}} taken",
     "takenAt": "Taken at {{time}}",
     "missedAt": "Missed \u2014 {{time}}",
-    "noHistory": "No history yet",
-    "noHistoryDesc": "Your medication history will appear here"
+    "noHistory": "No Records Yet",
+    "noHistoryDesc": "Add medications and take them on time — your history will appear here"
   },
   "settings": {
     "title": "Settings",
@@ -137,8 +138,8 @@
     "signIn": "Sign In"
   },
   "permissions": {
-    "deniedTitle": "Permission Required",
-    "deniedMessage": "Notification permission is needed for medication reminders. Please enable it in Settings.",
+    "deniedTitle": "Notification Permission Required",
+    "deniedMessage": "Medication reminders need notification permission to work. Please enable it in Settings.",
     "openSettings": "Open Settings"
   },
   "sounds": {

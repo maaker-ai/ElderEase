@@ -29,7 +29,8 @@
     "overdue": "In ritardo",
     "noMeds": "Nessun farmaco oggi",
     "noMedsDesc": "Aggiungi il tuo primo farmaco",
-    "addFirst": "Aggiungi farmaco"
+    "addFirst": "Aggiungi farmaco",
+    "addMed": "Aggiungi farmaco"
   },
   "meds": {
     "title": "Tutti i farmaci",
@@ -39,8 +40,8 @@
     "everyDay": "Ogni giorno",
     "every2Days": "Ogni 2 giorni",
     "weekly": "Settimanale",
-    "noMeds": "Nessun farmaco",
-    "noMedsDesc": "Tocca + per aggiungere"
+    "noMeds": "Nessun farmaco aggiunto",
+    "noMedsDesc": "Tocca il pulsante + sopra per aggiungere il tuo primo farmaco"
   },
   "history": {
     "title": "Cronologia",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} di {{total}} assunti",
     "takenAt": "Assunto alle {{time}}",
     "missedAt": "Mancato — {{time}}",
-    "noHistory": "Nessuna cronologia",
-    "noHistoryDesc": "La cronologia dei farmaci apparirà qui"
+    "noHistory": "Nessun record",
+    "noHistoryDesc": "Aggiungi farmaci e prendili in tempo — la tua cronologia apparirà qui"
   },
   "settings": {
     "title": "Impostazioni",
@@ -137,8 +138,8 @@
     "signIn": "Accedi"
   },
   "permissions": {
-    "deniedTitle": "Permesso richiesto",
-    "deniedMessage": "Il permesso notifiche è necessario per i promemoria. Abilitalo nelle impostazioni.",
+    "deniedTitle": "Autorizzazione notifiche richiesta",
+    "deniedMessage": "I promemoria dei farmaci richiedono l'autorizzazione alle notifiche. Abilitala nelle Impostazioni.",
     "openSettings": "Apri impostazioni"
   },
   "sounds": {

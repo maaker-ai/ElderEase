@@ -29,7 +29,8 @@
     "overdue": "Atrasado",
     "noMeds": "Sin medicamentos hoy",
     "noMedsDesc": "Añade tu primer medicamento",
-    "addFirst": "Añadir medicamento"
+    "addFirst": "Añadir medicamento",
+    "addMed": "Agregar medicamento"
   },
   "meds": {
     "title": "Todos los medicamentos",
@@ -39,8 +40,8 @@
     "everyDay": "Diario",
     "every2Days": "Cada 2 días",
     "weekly": "Semanal",
-    "noMeds": "Sin medicamentos aún",
-    "noMedsDesc": "Toca + para añadir"
+    "noMeds": "No hay medicamentos agregados",
+    "noMedsDesc": "Toca el botón + de arriba para agregar tu primer medicamento"
   },
   "history": {
     "title": "Historial",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} de {{total}} tomados",
     "takenAt": "Tomado a las {{time}}",
     "missedAt": "Omitido — {{time}}",
-    "noHistory": "Sin historial aún",
-    "noHistoryDesc": "Tu historial de medicamentos aparecerá aquí"
+    "noHistory": "Sin registros",
+    "noHistoryDesc": "Agrega medicamentos y tómalos a tiempo — tu historial aparecerá aquí"
   },
   "settings": {
     "title": "Ajustes",
@@ -137,8 +138,8 @@
     "signIn": "Inicia sesión"
   },
   "permissions": {
-    "deniedTitle": "Permiso requerido",
-    "deniedMessage": "Se necesita permiso de notificaciones para los recordatorios. Habilítalo en Ajustes.",
+    "deniedTitle": "Permiso de notificación requerido",
+    "deniedMessage": "Los recordatorios de medicamentos necesitan permiso de notificación. Por favor, actívelo en Ajustes.",
     "openSettings": "Abrir Ajustes"
   },
   "sounds": {

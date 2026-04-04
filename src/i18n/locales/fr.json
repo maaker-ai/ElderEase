@@ -27,9 +27,10 @@
     "dueNow": "À prendre",
     "dueIn": "Dans {{time}}",
     "overdue": "En retard",
-    "noMeds": "Aucun médicament prévu aujourd'hui",
+    "noMeds": "Aucun médicament aujourd'hui",
     "noMedsDesc": "Ajoutez votre premier médicament",
-    "addFirst": "Ajouter un médicament"
+    "addFirst": "Ajouter un médicament",
+    "addMed": "Ajouter un médicament"
   },
   "meds": {
     "title": "Tous les médicaments",
@@ -39,8 +40,8 @@
     "everyDay": "Chaque jour",
     "every2Days": "Tous les 2 jours",
     "weekly": "Hebdomadaire",
-    "noMeds": "Aucun médicament",
-    "noMedsDesc": "Appuyez sur + pour ajouter"
+    "noMeds": "Aucun médicament ajouté",
+    "noMedsDesc": "Appuyez sur le bouton + ci-dessus pour ajouter votre premier médicament"
   },
   "history": {
     "title": "Historique",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} sur {{total}} pris",
     "takenAt": "Pris à {{time}}",
     "missedAt": "Manqué — {{time}}",
-    "noHistory": "Pas encore d'historique",
-    "noHistoryDesc": "Votre historique de médicaments apparaîtra ici"
+    "noHistory": "Aucun enregistrement",
+    "noHistoryDesc": "Ajoutez des médicaments et prenez-les à temps — votre historique apparaîtra ici"
   },
   "settings": {
     "title": "Paramètres",
@@ -137,8 +138,8 @@
     "signIn": "Se connecter"
   },
   "permissions": {
-    "deniedTitle": "Permission requise",
-    "deniedMessage": "La permission de notification est nécessaire pour les rappels. Veuillez l'activer dans les paramètres.",
+    "deniedTitle": "Autorisation de notification requise",
+    "deniedMessage": "Les rappels de médicaments nécessitent l'autorisation de notification. Veuillez l'activer dans les Réglages.",
     "openSettings": "Ouvrir les paramètres"
   },
   "sounds": {

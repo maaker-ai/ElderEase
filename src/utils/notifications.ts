@@ -1,5 +1,5 @@
 import * as Notifications from 'expo-notifications';
-import { Platform, Alert, Linking } from 'react-native';
+import { Platform } from 'react-native';
 import { Medication } from '@/types';
 import { useAppStore } from '@/stores/useAppStore';
 import i18n from '@/i18n';
@@ -18,7 +18,15 @@ Notifications.setNotificationHandler({
   },
 });
 
-export async function requestNotificationPermission(): Promise<boolean> {
+/**
+ * Request notification permission.
+ * @param onDenied Optional callback when permission is denied. If provided, the custom modal
+ *   should be shown by the caller. If not provided, fails silently.
+ * @returns true if permission granted, false otherwise.
+ */
+export async function requestNotificationPermission(
+  onDenied?: () => void
+): Promise<boolean> {
   const { status: existingStatus } = await Notifications.getPermissionsAsync();
   let finalStatus = existingStatus;
 
@@ -28,14 +36,7 @@ export async function requestNotificationPermission(): Promise<boolean> {
   }
 
   if (finalStatus !== 'granted') {
-    Alert.alert(
-      i18n.t('permissions.deniedTitle'),
-      i18n.t('permissions.deniedMessage'),
-      [
-        { text: i18n.t('common.cancel'), style: 'cancel' },
-        { text: i18n.t('permissions.openSettings'), onPress: () => Linking.openSettings() },
-      ]
-    );
+    onDenied?.();
     return false;
   }
 

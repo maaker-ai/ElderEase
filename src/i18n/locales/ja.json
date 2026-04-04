@@ -27,9 +27,10 @@
     "dueNow": "服用時間",
     "dueIn": "{{time}}後",
     "overdue": "過ぎています",
-    "noMeds": "今日のお薬はありません",
+    "noMeds": "今日の服薬予定はありません",
     "noMedsDesc": "最初のお薬を追加しましょう",
-    "addFirst": "お薬を追加"
+    "addFirst": "お薬を追加",
+    "addMed": "薬を追加"
   },
   "meds": {
     "title": "すべてのお薬",
@@ -39,8 +40,8 @@
     "everyDay": "毎日",
     "every2Days": "2日ごと",
     "weekly": "毎週",
-    "noMeds": "お薬はまだありません",
-    "noMedsDesc": "+をタップして追加"
+    "noMeds": "薬が登録されていません",
+    "noMedsDesc": "上の + ボタンをタップして最初の薬を追加してください"
   },
   "history": {
     "title": "履歴",
@@ -54,8 +55,8 @@
     "ofTaken": "{{total}}中{{taken}}服用",
     "takenAt": "{{time}}に服用",
     "missedAt": "服用漏れ — {{time}}",
-    "noHistory": "履歴はまだありません",
-    "noHistoryDesc": "服薬履歴がここに表示されます"
+    "noHistory": "記録がありません",
+    "noHistoryDesc": "薬を追加して時間通りに服用すると、履歴がここに表示されます"
   },
   "settings": {
     "title": "設定",
@@ -137,8 +138,8 @@
     "signIn": "サインイン"
   },
   "permissions": {
-    "deniedTitle": "権限が必要です",
-    "deniedMessage": "服薬リマインダーには通知権限が必要です。設定で有効にしてください。",
+    "deniedTitle": "通知の許可が必要です",
+    "deniedMessage": "服薬リマインダーには通知の許可が必要です。設定で有効にしてください。",
     "openSettings": "設定を開く"
   },
   "sounds": {

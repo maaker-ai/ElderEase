@@ -27,9 +27,10 @@
     "dueNow": "Jetzt fällig",
     "dueIn": "In {{time}} fällig",
     "overdue": "Überfällig",
-    "noMeds": "Keine Medikamente für heute",
+    "noMeds": "Keine Medikamente heute",
     "noMedsDesc": "Fügen Sie Ihr erstes Medikament hinzu",
-    "addFirst": "Medikament hinzufügen"
+    "addFirst": "Medikament hinzufügen",
+    "addMed": "Medikament hinzufügen"
   },
   "meds": {
     "title": "Alle Medikamente",
@@ -39,8 +40,8 @@
     "everyDay": "Täglich",
     "every2Days": "Alle 2 Tage",
     "weekly": "Wöchentlich",
-    "noMeds": "Noch keine Medikamente",
-    "noMedsDesc": "Tippen Sie + zum Hinzufügen"
+    "noMeds": "Keine Medikamente hinzugefügt",
+    "noMedsDesc": "Tippen Sie oben auf +, um Ihr erstes Medikament hinzuzufügen"
   },
   "history": {
     "title": "Verlauf",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} von {{total}} eingenommen",
     "takenAt": "Eingenommen um {{time}}",
     "missedAt": "Verpasst — {{time}}",
-    "noHistory": "Noch kein Verlauf",
-    "noHistoryDesc": "Ihr Medikamentenverlauf erscheint hier"
+    "noHistory": "Keine Aufzeichnungen",
+    "noHistoryDesc": "Fügen Sie Medikamente hinzu und nehmen Sie sie pünktlich ein — Ihr Verlauf erscheint hier"
   },
   "settings": {
     "title": "Einstellungen",
@@ -137,8 +138,8 @@
     "signIn": "Anmelden"
   },
   "permissions": {
-    "deniedTitle": "Berechtigung erforderlich",
-    "deniedMessage": "Für Medikamentenerinnerungen wird die Benachrichtigungsberechtigung benötigt. Bitte in den Einstellungen aktivieren.",
+    "deniedTitle": "Benachrichtigungsberechtigung erforderlich",
+    "deniedMessage": "Medikamentenerinnerungen benötigen die Benachrichtigungsberechtigung. Bitte aktivieren Sie diese in den Einstellungen.",
     "openSettings": "Einstellungen öffnen"
   },
   "sounds": {

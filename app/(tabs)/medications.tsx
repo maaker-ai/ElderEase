@@ -114,18 +114,38 @@ export default function MedicationsScreen() {
       {/* Med list */}
       <ScrollView
         style={{ flex: 1, marginTop: 20 }}
-        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 100 }}
+        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 100, flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
         {medications.length === 0 && (
-          <View style={{ alignItems: 'center', paddingTop: 60 }}>
-            <Pill size={48} color={Colors.textPlaceholder} strokeWidth={1.5} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 40,
+              paddingBottom: 80,
+            }}
+          >
+            <View
+              style={{
+                width: 96,
+                height: 96,
+                borderRadius: 24,
+                backgroundColor: '#F5F5F0',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Pill size={48} color="#D6D3D1" strokeWidth={1.5} />
+            </View>
             <Text
               style={{
                 fontFamily: Fonts.manrope.bold,
                 fontSize: 20,
-                color: Colors.textSecondary,
+                color: '#78716C',
                 marginTop: 16,
+                textAlign: 'center',
               }}
             >
               {t('meds.noMeds')}
@@ -133,9 +153,12 @@ export default function MedicationsScreen() {
             <Text
               style={{
                 fontFamily: Fonts.inter.regular,
-                fontSize: 16,
-                color: Colors.textPlaceholder,
-                marginTop: 8,
+                fontSize: 15,
+                color: '#A8A29E',
+                marginTop: 16,
+                textAlign: 'center',
+                lineHeight: 22.5,
+                width: 260,
               }}
             >
               {t('meds.noMedsDesc')}

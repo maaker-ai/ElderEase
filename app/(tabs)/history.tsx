@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, ChevronRight, CircleCheck, CircleX, Pill } from 'lucide-react-native';
+import { ChevronLeft, ChevronRight, CircleCheck, CircleX, Pill, CalendarX } from 'lucide-react-native';
 import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
@@ -131,7 +131,7 @@ export default function HistoryScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 100 }}
+        contentContainerStyle={{ paddingBottom: 100, flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
@@ -433,16 +433,50 @@ export default function HistoryScreen() {
         )}
 
         {selectedRecords.length === 0 && (
-          <View style={{ alignItems: 'center', paddingTop: 20, paddingHorizontal: 24 }}>
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 40,
+              paddingBottom: 100,
+              flex: 1,
+            }}
+          >
+            <View
+              style={{
+                width: 72,
+                height: 72,
+                borderRadius: 18,
+                backgroundColor: '#F5F5F0',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <CalendarX size={36} color="#D6D3D1" strokeWidth={1.5} />
+            </View>
             <Text
               style={{
-                fontFamily: Fonts.inter.regular,
-                fontSize: 16,
-                color: Colors.textPlaceholder,
+                fontFamily: Fonts.manrope.bold,
+                fontSize: 18,
+                color: '#78716C',
+                marginTop: 12,
                 textAlign: 'center',
               }}
             >
               {t('history.noHistory')}
+            </Text>
+            <Text
+              style={{
+                fontFamily: Fonts.inter.regular,
+                fontSize: 14,
+                color: '#A8A29E',
+                marginTop: 12,
+                textAlign: 'center',
+                lineHeight: 21,
+                width: 260,
+              }}
+            >
+              {t('history.noHistoryDesc')}
             </Text>
           </View>
         )}

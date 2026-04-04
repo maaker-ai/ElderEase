@@ -29,7 +29,8 @@
     "overdue": "Terlambat",
     "noMeds": "Tidak ada obat hari ini",
     "noMedsDesc": "Tambahkan obat pertama Anda",
-    "addFirst": "Tambah Obat"
+    "addFirst": "Tambah Obat",
+    "addMed": "Tambah Obat"
   },
   "meds": {
     "title": "Semua Obat",
@@ -39,8 +40,8 @@
     "everyDay": "Setiap hari",
     "every2Days": "Setiap 2 hari",
     "weekly": "Mingguan",
-    "noMeds": "Belum ada obat",
-    "noMedsDesc": "Ketuk + untuk menambahkan"
+    "noMeds": "Belum ada obat ditambahkan",
+    "noMedsDesc": "Ketuk tombol + di atas untuk menambahkan obat pertama Anda"
   },
   "history": {
     "title": "Riwayat",
@@ -54,8 +55,8 @@
     "ofTaken": "{{taken}} dari {{total}} diminum",
     "takenAt": "Diminum pukul {{time}}",
     "missedAt": "Terlewat — {{time}}",
-    "noHistory": "Belum ada riwayat",
-    "noHistoryDesc": "Riwayat obat akan muncul di sini"
+    "noHistory": "Belum ada catatan",
+    "noHistoryDesc": "Tambahkan obat dan minum tepat waktu — riwayat Anda akan muncul di sini"
   },
   "settings": {
     "title": "Pengaturan",
@@ -137,8 +138,8 @@
     "signIn": "Masuk"
   },
   "permissions": {
-    "deniedTitle": "Izin Diperlukan",
-    "deniedMessage": "Izin notifikasi diperlukan untuk pengingat obat. Aktifkan di Pengaturan.",
+    "deniedTitle": "Izin Notifikasi Diperlukan",
+    "deniedMessage": "Pengingat obat memerlukan izin notifikasi. Silakan aktifkan di Pengaturan.",
     "openSettings": "Buka Pengaturan"
   },
   "sounds": {

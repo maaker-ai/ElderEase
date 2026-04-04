@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Pressable, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
-import { Pill, HeartPulse, Droplets, Syringe, Thermometer, Activity, Check } from 'lucide-react-native';
+import { Pill, HeartPulse, Droplets, Syringe, Thermometer, Activity, Check, Plus } from 'lucide-react-native';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
@@ -167,18 +167,38 @@ export default function TodayScreen() {
       {/* Dose cards */}
       <ScrollView
         style={{ flex: 1, marginTop: 16 }}
-        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 100 }}
+        contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 100, flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
         {doseCards.length === 0 && (
-          <View style={{ alignItems: 'center', paddingTop: 60 }}>
-            <Pill size={48} color={Colors.textPlaceholder} strokeWidth={1.5} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 40,
+              paddingBottom: 80,
+            }}
+          >
+            <View
+              style={{
+                width: 96,
+                height: 96,
+                borderRadius: 24,
+                backgroundColor: '#F5F5F0',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Pill size={48} color="#D6D3D1" strokeWidth={1.5} />
+            </View>
             <Text
               style={{
                 fontFamily: Fonts.manrope.bold,
                 fontSize: 20,
-                color: Colors.textSecondary,
+                color: '#78716C',
                 marginTop: 16,
+                textAlign: 'center',
               }}
             >
               {t('today.noMeds')}
@@ -186,10 +206,12 @@ export default function TodayScreen() {
             <Text
               style={{
                 fontFamily: Fonts.inter.regular,
-                fontSize: 16,
-                color: Colors.textPlaceholder,
-                marginTop: 8,
+                fontSize: 15,
+                color: '#A8A29E',
+                marginTop: 16,
                 textAlign: 'center',
+                lineHeight: 22.5,
+                width: 260,
               }}
             >
               {t('today.noMedsDesc')}
@@ -199,12 +221,22 @@ export default function TodayScreen() {
               activeOpacity={0.8}
               style={{
                 backgroundColor: Colors.primary,
-                borderRadius: 14,
-                paddingHorizontal: 24,
-                paddingVertical: 14,
-                marginTop: 24,
+                borderRadius: 16,
+                paddingHorizontal: 32,
+                paddingVertical: 16,
+                marginTop: 16,
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                shadowColor: '#F59E0B44',
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 1,
+                shadowRadius: 12,
+                elevation: 5,
               }}
             >
+              <Plus size={20} color="#FFFFFF" strokeWidth={2.5} />
               <Text
                 style={{
                   fontFamily: Fonts.manrope.bold,
@@ -212,7 +244,7 @@ export default function TodayScreen() {
                   color: '#FFFFFF',
                 }}
               >
-                {t('today.addFirst')}
+                {t('today.addMed')}
               </Text>
             </TouchableOpacity>
           </View>
