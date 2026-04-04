@@ -74,6 +74,8 @@
     "version": "الإصدار",
     "privacyPolicy": "سياسة الخصوصية",
     "restorePurchase": "استعادة الشراء",
+    "freePlan": "خطة مجانية",
+    "upgradeDesc": "افتح إدارة الأدوية غير المحدودة وجميع الميزات المتميزة.",
     "upgradeToPro": "ترقية إلى غير محدود",
     "restoreSuccess": "تم استعادة الشراء بنجاح!",
     "proActiveTitle": "غير محدود",

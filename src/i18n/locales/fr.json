@@ -74,6 +74,8 @@
     "version": "Version",
     "privacyPolicy": "Politique de confidentialité",
     "restorePurchase": "Restaurer l'achat",
+    "freePlan": "Plan Gratuit",
+    "upgradeDesc": "Débloquez les médicaments illimités et toutes les fonctionnalités premium.",
     "upgradeToPro": "Passer à Illimité",
     "restoreSuccess": "Achat restauré avec succès !",
     "proActiveTitle": "Illimité",

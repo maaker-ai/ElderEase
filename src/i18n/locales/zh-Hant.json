@@ -74,6 +74,8 @@
     "version": "版本",
     "privacyPolicy": "隱私政策",
     "restorePurchase": "恢復購買",
+    "freePlan": "免費版",
+    "upgradeDesc": "解鎖無限藥物管理及全部進階功能。",
     "upgradeToPro": "升級無限版",
     "restoreSuccess": "購買已成功恢復！",
     "proActiveTitle": "無限版",

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
 import {
   Volume2, Clock, ChevronRight, Shield, RotateCcw, CircleCheck,
+  Sparkles, Crown,
 } from 'lucide-react-native';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
@@ -241,27 +242,125 @@ export default function SettingsScreen() {
             </View>
           </LinearGradient>
         ) : (
-          <TouchableOpacity
-            onPress={() => router.push('/paywall')}
-            activeOpacity={0.8}
-            style={{
-              backgroundColor: Colors.primary,
-              borderRadius: 16,
-              padding: 16,
-              marginTop: 16,
-              alignItems: 'center',
-            }}
-          >
-            <Text
+          <View style={{ marginTop: 16, gap: 0 }}>
+            {/* Upgrade info card */}
+            <LinearGradient
+              colors={['#FFF7ED', '#FEF3C7']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
               style={{
-                fontFamily: Fonts.manrope.bold,
-                fontSize: 16,
-                color: '#FFFFFF',
+                borderRadius: 20,
+                borderWidth: 2,
+                borderColor: Colors.primary,
+                padding: 20,
+                gap: 12,
               }}
             >
-              {t('settings.upgradeToPro')}
-            </Text>
-          </TouchableOpacity>
+              {/* Top row: icon + label + FREE badge */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+                  <View
+                    style={{
+                      width: 44,
+                      height: 44,
+                      borderRadius: 12,
+                      backgroundColor: Colors.primary,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Sparkles size={22} color="#FFFFFF" strokeWidth={2} />
+                  </View>
+                  <View style={{ gap: 2 }}>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.manrope.extraBold,
+                        fontSize: 20,
+                        color: '#92400E',
+                        letterSpacing: -0.3,
+                      }}
+                    >
+                      {t('settings.proActiveTitle')}
+                    </Text>
+                    <Text
+                      style={{
+                        fontFamily: Fonts.inter.bold,
+                        fontSize: 12,
+                        color: '#B45309',
+                        letterSpacing: 1.5,
+                      }}
+                    >
+                      {t('settings.freePlan')}
+                    </Text>
+                  </View>
+                </View>
+                <View
+                  style={{
+                    backgroundColor: '#E7E5E4',
+                    borderRadius: 20,
+                    paddingHorizontal: 12,
+                    paddingVertical: 6,
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontFamily: Fonts.manrope.extraBold,
+                      fontSize: 13,
+                      color: '#78716C',
+                      letterSpacing: 1,
+                    }}
+                  >
+                    FREE
+                  </Text>
+                </View>
+              </View>
+
+              {/* Description */}
+              <Text
+                style={{
+                  fontFamily: Fonts.inter.regular,
+                  fontSize: 14,
+                  color: '#92400E',
+                  lineHeight: 14 * 1.4,
+                }}
+              >
+                {t('settings.upgradeDesc')}
+              </Text>
+
+              {/* CTA button */}
+              <TouchableOpacity
+                onPress={() => router.push('/paywall')}
+                activeOpacity={0.8}
+                style={{
+                  backgroundColor: Colors.primary,
+                  borderRadius: 14,
+                  height: 52,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                }}
+              >
+                <Crown size={20} color="#FFFFFF" strokeWidth={2} />
+                <Text
+                  style={{
+                    fontFamily: Fonts.manrope.extraBold,
+                    fontSize: 17,
+                    color: '#FFFFFF',
+                    letterSpacing: -0.2,
+                  }}
+                >
+                  {t('settings.upgradeToPro')}
+                </Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
         )}
 
         {/* Reminders */}

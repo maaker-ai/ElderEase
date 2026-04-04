@@ -74,6 +74,8 @@
     "version": "Version",
     "privacyPolicy": "Datenschutzrichtlinie",
     "restorePurchase": "Kauf wiederherstellen",
+    "freePlan": "Kostenloser Plan",
+    "upgradeDesc": "Unbegrenzte Medikamente und alle Premium-Funktionen freischalten.",
     "upgradeToPro": "Auf Unbegrenzt upgraden",
     "restoreSuccess": "Kauf erfolgreich wiederhergestellt!",
     "proActiveTitle": "Unbegrenzt",

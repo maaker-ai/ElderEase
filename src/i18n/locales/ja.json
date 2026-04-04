@@ -74,6 +74,8 @@
     "version": "バージョン",
     "privacyPolicy": "プライバシーポリシー",
     "restorePurchase": "購入を復元",
+    "freePlan": "無料プラン",
+    "upgradeDesc": "無制限のお薬管理とすべてのプレミアム機能をアンロック。",
     "upgradeToPro": "無制限版にアップグレード",
     "restoreSuccess": "購入を復元しました！",
     "proActiveTitle": "無制限",
