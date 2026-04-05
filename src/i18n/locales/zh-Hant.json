@@ -100,7 +100,10 @@
     "deleteMedication": "刪除藥物",
     "deleteConfirm": "確定要刪除這個藥物嗎？",
     "validationName": "請輸入藥物名稱",
-    "validationDosage": "請輸入有效劑量"
+    "validationDosage": "請輸入有效劑量",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "錠"
   },
   "paywall": {
     "unlockTitle": "解鎖無限版",

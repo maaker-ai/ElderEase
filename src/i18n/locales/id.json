@@ -100,7 +100,10 @@
     "deleteMedication": "Hapus Obat",
     "deleteConfirm": "Yakin ingin menghapus obat ini?",
     "validationName": "Masukkan nama obat",
-    "validationDosage": "Masukkan dosis yang valid"
+    "validationDosage": "Masukkan dosis yang valid",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "tablet"
   },
   "paywall": {
     "unlockTitle": "Buka Tidak Terbatas",

@@ -100,7 +100,10 @@
     "deleteMedication": "Supprimer le médicament",
     "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce médicament?",
     "validationName": "Veuillez entrer un nom de médicament",
-    "validationDosage": "Veuillez entrer un dosage valide"
+    "validationDosage": "Veuillez entrer un dosage valide",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "comprimés"
   },
   "paywall": {
     "unlockTitle": "Débloquer Illimité",

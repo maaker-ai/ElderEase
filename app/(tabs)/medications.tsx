@@ -10,8 +10,7 @@ import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { formatTime } from '@/utils/helpers';
-import { getMedIconConfig } from '@/utils/helpers';
+import { formatTime, getMedIconConfig, unitI18nKey } from '@/utils/helpers';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
   pill: Pill,
@@ -219,7 +218,7 @@ export default function MedicationsScreen() {
                     color: Colors.textPlaceholder,
                   }}
                 >
-                  {med.dosage}{med.unit} {'\u2022'} {getFreqLabel(med.frequency)}
+                  {med.dosage}{t(unitI18nKey(med.unit))} {'\u2022'} {getFreqLabel(med.frequency)}
                 </Text>
                 <Text
                   style={{

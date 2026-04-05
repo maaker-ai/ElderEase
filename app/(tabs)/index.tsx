@@ -8,7 +8,7 @@ import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { todayISO, formatTime, getGreeting, getTimeDiff, isDoseScheduledForDate } from '@/utils/helpers';
+import { todayISO, formatTime, getGreeting, getTimeDiff, isDoseScheduledForDate, unitI18nKey } from '@/utils/helpers';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
   pill: Pill,
@@ -320,7 +320,7 @@ export default function TodayScreen() {
                         color: Colors.textSecondary,
                       }}
                     >
-                      {med.dosage}{med.unit}
+                      {med.dosage}{t(unitI18nKey(med.unit))}
                     </Text>
                   </View>
                 </View>

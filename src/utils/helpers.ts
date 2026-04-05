@@ -15,6 +15,11 @@ export function formatTime(time: string): string {
   return `${hour12}:${m.toString().padStart(2, '0')} ${period}`;
 }
 
+export function unitI18nKey(unit: string): string {
+  const map: Record<string, string> = { mg: 'addMed.unitMg', ml: 'addMed.unitMl', tablets: 'addMed.unitTablets' };
+  return map[unit] ?? unit;
+}
+
 export function getGreeting(): 'goodMorning' | 'goodAfternoon' | 'goodEvening' {
   const h = new Date().getHours();
   if (h < 12) return 'goodMorning';

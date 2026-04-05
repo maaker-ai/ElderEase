@@ -100,7 +100,10 @@
     "deleteMedication": "Medikament löschen",
     "deleteConfirm": "Möchten Sie dieses Medikament wirklich löschen?",
     "validationName": "Bitte Medikamentenname eingeben",
-    "validationDosage": "Bitte gültige Dosierung eingeben"
+    "validationDosage": "Bitte gültige Dosierung eingeben",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "Tabletten"
   },
   "paywall": {
     "unlockTitle": "Unbegrenzt freischalten",

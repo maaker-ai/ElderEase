@@ -100,7 +100,10 @@
     "deleteMedication": "删除药物",
     "deleteConfirm": "确定要删除这个药物吗？",
     "validationName": "请输入药物名称",
-    "validationDosage": "请输入有效剂量"
+    "validationDosage": "请输入有效剂量",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "片"
   },
   "paywall": {
     "unlockTitle": "解锁无限版",

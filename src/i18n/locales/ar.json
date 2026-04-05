@@ -100,7 +100,10 @@
     "deleteMedication": "حذف الدواء",
     "deleteConfirm": "هل أنت متأكد من حذف هذا الدواء؟",
     "validationName": "أدخل اسم الدواء",
-    "validationDosage": "أدخل جرعة صالحة"
+    "validationDosage": "أدخل جرعة صالحة",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "أقراص"
   },
   "paywall": {
     "unlockTitle": "فتح غير محدود",

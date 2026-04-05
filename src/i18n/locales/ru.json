@@ -100,7 +100,10 @@
     "deleteMedication": "Удалить",
     "deleteConfirm": "Вы уверены, что хотите удалить?",
     "validationName": "Введите название",
-    "validationDosage": "Введите корректную дозировку"
+    "validationDosage": "Введите корректную дозировку",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "таблетки"
   },
   "paywall": {
     "unlockTitle": "Разблокировать Безлимит",

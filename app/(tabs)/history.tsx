@@ -12,6 +12,7 @@ import {
   getMonthName,
   todayISO,
   formatTime,
+  unitI18nKey,
 } from '@/utils/helpers';
 
 const DAY_LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -407,7 +408,7 @@ export default function HistoryScreen() {
                         color: Colors.textPrimary,
                       }}
                     >
-                      {med.name} {med.dosage}{med.unit}
+                      {med.name} {med.dosage}{t(unitI18nKey(med.unit))}
                     </Text>
                     <Text
                       style={{

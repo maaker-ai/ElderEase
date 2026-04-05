@@ -12,12 +12,13 @@ import { Colors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
 import { Medication } from '@/types';
-import { formatTime } from '@/utils/helpers';
+import { formatTime, unitI18nKey } from '@/utils/helpers';
 import { requestNotificationPermission } from '@/utils/notifications';
 import { NotificationPermissionModal } from '@/components/NotificationPermissionModal';
 
 type FreqType = 'daily' | 'every2days' | 'weekly';
 type UnitType = 'mg' | 'ml' | 'tablets';
+
 
 export default function AddMedicationScreen() {
   const { t } = useTranslation();
@@ -348,7 +349,7 @@ export default function AddMedicationScreen() {
                       color: Colors.primary,
                     }}
                   >
-                    {unit}
+                    {t(unitI18nKey(unit))}
                   </Text>
                 </TouchableOpacity>
               </View>

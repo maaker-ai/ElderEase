@@ -100,7 +100,10 @@
     "deleteMedication": "削除",
     "deleteConfirm": "このお薬を削除しますか？",
     "validationName": "薬名を入力してください",
-    "validationDosage": "有効な用量を入力してください"
+    "validationDosage": "有効な用量を入力してください",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "錠"
   },
   "paywall": {
     "unlockTitle": "無制限を解除",

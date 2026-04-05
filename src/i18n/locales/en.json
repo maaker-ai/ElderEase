@@ -100,7 +100,10 @@
     "deleteMedication": "Delete Medication",
     "deleteConfirm": "Are you sure you want to delete this medication?",
     "validationName": "Please enter a medication name",
-    "validationDosage": "Please enter a valid dosage"
+    "validationDosage": "Please enter a valid dosage",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "tablets"
   },
   "paywall": {
     "unlockTitle": "Unlock Unlimited",

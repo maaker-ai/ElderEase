@@ -100,7 +100,10 @@
     "deleteMedication": "삭제",
     "deleteConfirm": "이 약을 삭제하시겠습니까?",
     "validationName": "약 이름을 입력하세요",
-    "validationDosage": "유효한 용량을 입력하세요"
+    "validationDosage": "유효한 용량을 입력하세요",
+    "unitMg": "mg",
+    "unitMl": "ml",
+    "unitTablets": "정"
   },
   "paywall": {
     "unlockTitle": "무제한 해제",
