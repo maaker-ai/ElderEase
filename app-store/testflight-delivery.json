@@ -1,11 +1,11 @@
 {
-  "uploaded_at": "2026-04-05T07:15:00Z",
-  "build_number": "14",
+  "uploaded_at": "2026-04-05T12:00:00Z",
+  "build_number": "16",
   "version": "1.0.0",
-  "eas_submission_id": "61aa9f76-b88e-4e80-a3d4-5d5fca0f158c",
+  "eas_submission_id": "6be94d9c-1ecc-4b8c-a69f-9d3fef2aacf0",
   "asc_app_id": "6761602083",
   "testflight_url": "https://appstoreconnect.apple.com/apps/6761602083/testflight/ios",
-  "ipa_path": "build-1775344263776.ipa",
+  "ipa_path": "build-1775361399803.ipa",
   "status": "processing",
   "iap_preflight": {
     "required": true,
@@ -17,12 +17,11 @@
     "revenuecat_entitlement": "unlimited"
   },
   "build_notes": {
-    "fixes": [
-      "icon assets converted from JPEG to PNG format",
-      "ReactNativeDependencies.xcframework rebuilt via expo prebuild --clean",
-      "EAS autoIncrement caused buildNumber to reach 14 (started from 9)"
+    "changes": [
+      "Empty states for Today/Meds/History pages (designed + implemented)",
+      "Custom notification permission modal (replaces Alert.alert)",
+      "Medication unit i18n (tablets translated to 12 languages)"
     ],
-    "xcode_version": "26.4 (beta)",
     "local_build": true
   }
 }
