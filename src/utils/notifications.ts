@@ -48,7 +48,11 @@ export async function scheduleNotificationsForMed(med: Medication): Promise<void
   await cancelNotificationsForMed(med.id);
 
   const hasPermission = await Notifications.getPermissionsAsync();
-  if (hasPermission.status !== 'granted') return;
+  console.log('[Notifications] Permission status:', hasPermission.status);
+  if (hasPermission.status !== 'granted') {
+    console.log('[Notifications] Permission not granted, skipping schedule for', med.name);
+    return;
+  }
 
   const { earlyReminder, reminderSound } = useAppStore.getState();
   const soundEnabled = reminderSound !== 'none';
@@ -67,19 +71,24 @@ export async function scheduleNotificationsForMed(med: Medication): Promise<void
       }
     }
 
-    await Notifications.scheduleNotificationAsync({
-      content: {
-        title: i18n.t('notifications.title', { name: med.name }),
-        body: i18n.t('notifications.body', { dosage: med.dosage, unit: med.unit }),
-        data: { medicationId: med.id },
-        sound: soundEnabled,
-      },
-      trigger: {
-        type: Notifications.SchedulableTriggerInputTypes.DAILY,
-        hour: adjustedHours,
-        minute: adjustedMinutes,
-      },
-    });
+    try {
+      const notifId = await Notifications.scheduleNotificationAsync({
+        content: {
+          title: i18n.t('notifications.title', { name: med.name }),
+          body: i18n.t('notifications.body', { dosage: med.dosage, unit: med.unit }),
+          data: { medicationId: med.id },
+          sound: soundEnabled ? 'default' : undefined,
+        },
+        trigger: {
+          type: Notifications.SchedulableTriggerInputTypes.DAILY,
+          hour: adjustedHours,
+          minute: adjustedMinutes,
+        },
+      });
+      console.log(`[Notifications] Scheduled for ${med.name} at ${adjustedHours}:${String(adjustedMinutes).padStart(2, '0')}, id: ${notifId}`);
+    } catch (err) {
+      console.error(`[Notifications] Failed to schedule for ${med.name} at ${adjustedHours}:${String(adjustedMinutes).padStart(2, '0')}:`, err);
+    }
   }
 }
 

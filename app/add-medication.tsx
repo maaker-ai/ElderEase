@@ -43,6 +43,11 @@ export default function AddMedicationScreen() {
   const [stockCount, setStockCount] = useState(existingMed?.stockCount?.toString() ?? '');
   const [showTimePicker, setShowTimePicker] = useState(false);
   const [editingTimeIdx, setEditingTimeIdx] = useState(-1);
+  const [tempPickerTime, setTempPickerTime] = useState<Date>(() => {
+    const d = new Date();
+    d.setHours(8, 0, 0, 0);
+    return d;
+  });
   const [showUnitPicker, setShowUnitPicker] = useState(false);
   const [nameFieldFocused, setNameFieldFocused] = useState(false);
 
@@ -73,6 +78,8 @@ export default function AddMedicationScreen() {
     };
 
     if (isEdit && id) {
+      // Ensure notification permission before updating (updateMedication reschedules notifications)
+      await requestNotificationPermission(() => setShowPermissionModal(true));
       updateMedication(id, medData);
       router.back();
     } else {
@@ -111,17 +118,32 @@ export default function AddMedicationScreen() {
 
   const addTime = () => {
     setEditingTimeIdx(-1);
+    const d = new Date();
+    d.setHours(8, 0, 0, 0);
+    setTempPickerTime(d);
     setShowTimePicker(true);
   };
 
   const editTime = (idx: number) => {
     setEditingTimeIdx(idx);
+    const [h, m] = reminderTimes[idx].split(':').map(Number);
+    const d = new Date();
+    d.setHours(h, m, 0, 0);
+    setTempPickerTime(d);
     setShowTimePicker(true);
   };
 
   const handleTimeChange = (_: any, date?: Date) => {
     if (Platform.OS === 'android') setShowTimePicker(false);
     if (!date) return;
+    setTempPickerTime(date);
+    // On Android, picker closes on selection, so commit immediately
+    if (Platform.OS === 'android') {
+      commitPickerTime(date);
+    }
+  };
+
+  const commitPickerTime = (date: Date) => {
     const h = date.getHours().toString().padStart(2, '0');
     const m = date.getMinutes().toString().padStart(2, '0');
     const timeStr = `${h}:${m}`;
@@ -133,19 +155,11 @@ export default function AddMedicationScreen() {
     } else {
       setReminderTimes([...reminderTimes, timeStr]);
     }
-    if (Platform.OS === 'ios') setShowTimePicker(false);
   };
 
-  const getTimePickerDate = () => {
-    if (editingTimeIdx >= 0 && reminderTimes[editingTimeIdx]) {
-      const [h, m] = reminderTimes[editingTimeIdx].split(':').map(Number);
-      const d = new Date();
-      d.setHours(h, m, 0, 0);
-      return d;
-    }
-    const d = new Date();
-    d.setHours(8, 0, 0, 0);
-    return d;
+  const handlePickerDone = () => {
+    commitPickerTime(tempPickerTime);
+    setShowTimePicker(false);
   };
 
   const removeTime = (idx: number) => {
@@ -523,14 +537,14 @@ export default function AddMedicationScreen() {
               }}
             >
               <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 16, paddingTop: 8 }}>
-                <TouchableOpacity onPress={() => setShowTimePicker(false)}>
+                <TouchableOpacity onPress={handlePickerDone}>
                   <Text style={{ fontFamily: Fonts.manrope.bold, fontSize: 16, color: Colors.primary }}>
                     {t('common.done')}
                   </Text>
                 </TouchableOpacity>
               </View>
               <DateTimePicker
-                value={getTimePickerDate()}
+                value={tempPickerTime}
                 mode="time"
                 display="spinner"
                 onChange={handleTimeChange}
