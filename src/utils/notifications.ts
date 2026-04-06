@@ -2,6 +2,7 @@ import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 import { Medication } from '@/types';
 import { useAppStore } from '@/stores/useAppStore';
+import { unitI18nKey } from '@/utils/helpers';
 import i18n from '@/i18n';
 
 // Configure notification handler
@@ -75,7 +76,7 @@ export async function scheduleNotificationsForMed(med: Medication): Promise<void
       const notifId = await Notifications.scheduleNotificationAsync({
         content: {
           title: i18n.t('notifications.title', { name: med.name }),
-          body: i18n.t('notifications.body', { dosage: med.dosage, unit: med.unit }),
+          body: i18n.t('notifications.body', { dosage: med.dosage, unit: i18n.t(unitI18nKey(med.unit)) }),
           data: { medicationId: med.id },
           sound: soundEnabled ? 'default' : undefined,
         },

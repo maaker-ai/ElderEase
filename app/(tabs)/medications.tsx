@@ -7,10 +7,10 @@ import {
   Pill, HeartPulse, Droplets, Syringe, Thermometer, Activity,
 } from 'lucide-react-native';
 import { router } from 'expo-router';
-import { Colors } from '@/constants/colors';
+import { Colors, HighContrastColors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { formatTime, getMedIconConfig, unitI18nKey } from '@/utils/helpers';
+import { formatTime, getMedIconConfig, unitI18nKey, getScaledFontSize } from '@/utils/helpers';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
   pill: Pill,
@@ -34,6 +34,12 @@ export default function MedicationsScreen() {
   const { t } = useTranslation();
   const medications = useAppStore((s) => s.medications);
   const isUnlimited = useAppStore((s) => s.isUnlimited);
+  const textSize = useAppStore((s) => s.textSize);
+  const highContrast = useAppStore((s) => s.highContrast);
+
+  const sz = (base: number, isTitle = false) => getScaledFontSize(base, textSize, isTitle);
+  const hcTextPlaceholder = highContrast ? HighContrastColors.textPlaceholder : Colors.textPlaceholder;
+  const hcCardBorder = highContrast ? HighContrastColors.cardBorder : Colors.cardBorder;
 
   const handleAdd = () => {
     if (!isUnlimited && medications.length >= 3) {
@@ -82,8 +88,8 @@ export default function MedicationsScreen() {
           <Text
             style={{
               fontFamily: Fonts.inter.regular,
-              fontSize: 16,
-              color: Colors.textPlaceholder,
+              fontSize: sz(16),
+              color: hcTextPlaceholder,
             }}
           >
             {t('meds.totalCount', { count: medications.length })}
@@ -184,8 +190,8 @@ export default function MedicationsScreen() {
                 borderRadius: 20,
                 padding: 20,
                 marginBottom: 12,
-                borderWidth: 1,
-                borderColor: Colors.cardBorder,
+                borderWidth: highContrast ? 2 : 1,
+                borderColor: hcCardBorder,
                 gap: 12,
               }}
             >
@@ -205,7 +211,7 @@ export default function MedicationsScreen() {
                 <Text
                   style={{
                     fontFamily: Fonts.manrope.extraBold,
-                    fontSize: 22,
+                    fontSize: sz(22, true),
                     color: Colors.textPrimary,
                   }}
                 >
@@ -214,8 +220,8 @@ export default function MedicationsScreen() {
                 <Text
                   style={{
                     fontFamily: Fonts.inter.regular,
-                    fontSize: 16,
-                    color: Colors.textPlaceholder,
+                    fontSize: sz(16),
+                    color: hcTextPlaceholder,
                   }}
                 >
                   {med.dosage}{t(unitI18nKey(med.unit))} {'\u2022'} {getFreqLabel(med.frequency)}
@@ -223,7 +229,7 @@ export default function MedicationsScreen() {
                 <Text
                   style={{
                     fontFamily: Fonts.inter.medium,
-                    fontSize: 14,
+                    fontSize: sz(14),
                     color: Colors.primary,
                   }}
                 >

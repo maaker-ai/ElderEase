@@ -1,4 +1,24 @@
-import { Medication, DoseRecord } from '@/types';
+import { Medication, DoseRecord, TextSizeOption } from '@/types';
+
+/**
+ * Scale a base font size according to the user's textSize preference.
+ * - 'default': no change
+ * - 'large': +2px (titles +4px)
+ * - 'extra-large': +4px (titles +6px)
+ * @param base The original fontSize value
+ * @param textSize The user's text size preference
+ * @param isTitle Whether this is a title/heading (gets larger bump)
+ */
+export function getScaledFontSize(
+  base: number,
+  textSize: TextSizeOption,
+  isTitle = false,
+): number {
+  if (textSize === 'default') return base;
+  if (textSize === 'large') return base + (isTitle ? 4 : 2);
+  // extra-large
+  return base + (isTitle ? 6 : 4);
+}
 
 export function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);

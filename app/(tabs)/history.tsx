@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight, CircleCheck, CircleX, Pill, CalendarX } from 'lucide-react-native';
-import { Colors } from '@/constants/colors';
+import { Colors, HighContrastColors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
 import {
@@ -13,6 +13,7 @@ import {
   todayISO,
   formatTime,
   unitI18nKey,
+  getScaledFontSize,
 } from '@/utils/helpers';
 
 const DAY_LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
@@ -21,6 +22,13 @@ export default function HistoryScreen() {
   const { t } = useTranslation();
   const medications = useAppStore((s) => s.medications);
   const doseRecords = useAppStore((s) => s.doseRecords);
+  const textSize = useAppStore((s) => s.textSize);
+  const highContrast = useAppStore((s) => s.highContrast);
+
+  const sz = (base: number, isTitle = false) => getScaledFontSize(base, textSize, isTitle);
+  const hcTextSecondary = highContrast ? HighContrastColors.textSecondary : Colors.textSecondary;
+  const hcTextPlaceholder = highContrast ? HighContrastColors.textPlaceholder : Colors.textPlaceholder;
+  const hcCardBorder = highContrast ? HighContrastColors.cardBorder : Colors.cardBorder;
 
   const now = new Date();
   const [viewYear, setViewYear] = useState(now.getFullYear());
@@ -262,19 +270,19 @@ export default function HistoryScreen() {
           >
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
               <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: Colors.success }} />
-              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 12, color: Colors.textSecondary }}>
+              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(12), color: hcTextSecondary }}>
                 {t('history.allTaken')}
               </Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
               <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: Colors.error }} />
-              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 12, color: Colors.textSecondary }}>
+              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(12), color: hcTextSecondary }}>
                 {t('history.missedDose')}
               </Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
               <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: Colors.upcoming }} />
-              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 12, color: Colors.textSecondary }}>
+              <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(12), color: hcTextSecondary }}>
                 {t('history.upcoming')}
               </Text>
             </View>
@@ -294,43 +302,43 @@ export default function HistoryScreen() {
             <Text
               style={{
                 fontFamily: Fonts.manrope.extraBold,
-                fontSize: 32,
+                fontSize: sz(32, true),
                 color: Colors.success,
               }}
             >
               {monthPercentage}%
             </Text>
-            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 13, color: Colors.textSecondary }}>
+            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(13), color: hcTextSecondary }}>
               {t('history.thisMonth')}
             </Text>
           </View>
-          <View style={{ width: 1, height: 48, backgroundColor: Colors.cardBorder }} />
+          <View style={{ width: 1, height: 48, backgroundColor: hcCardBorder }} />
           <View style={{ flex: 1, alignItems: 'center', gap: 4 }}>
             <Text
               style={{
                 fontFamily: Fonts.manrope.extraBold,
-                fontSize: 32,
+                fontSize: sz(32, true),
                 color: Colors.textPrimary,
               }}
             >
               {uniqueDays}
             </Text>
-            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 13, color: Colors.textSecondary }}>
+            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(13), color: hcTextSecondary }}>
               {t('history.daysTracked')}
             </Text>
           </View>
-          <View style={{ width: 1, height: 48, backgroundColor: Colors.cardBorder }} />
+          <View style={{ width: 1, height: 48, backgroundColor: hcCardBorder }} />
           <View style={{ flex: 1, alignItems: 'center', gap: 4 }}>
             <Text
               style={{
                 fontFamily: Fonts.manrope.extraBold,
-                fontSize: 32,
+                fontSize: sz(32, true),
                 color: Colors.error,
               }}
             >
               {monthMissed}
             </Text>
-            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: 13, color: Colors.textSecondary }}>
+            <Text style={{ fontFamily: Fonts.inter.regular, fontSize: sz(13), color: hcTextSecondary }}>
               {t('history.missed')}
             </Text>
           </View>
@@ -350,7 +358,7 @@ export default function HistoryScreen() {
               <Text
                 style={{
                   fontFamily: Fonts.manrope.bold,
-                  fontSize: 18,
+                  fontSize: sz(18, true),
                   color: Colors.textPrimary,
                 }}
               >
@@ -359,7 +367,7 @@ export default function HistoryScreen() {
               <Text
                 style={{
                   fontFamily: Fonts.inter.medium,
-                  fontSize: 14,
+                  fontSize: sz(14),
                   color: Colors.success,
                 }}
               >
@@ -374,7 +382,10 @@ export default function HistoryScreen() {
               const isPast = record.scheduledDate < todayISO() && record.status === 'pending';
               const statusColor = isTaken ? Colors.success : isPast ? Colors.error : Colors.textPlaceholder;
               const bgColor = isTaken ? Colors.card : isPast ? Colors.errorLightBg : Colors.card;
-              const borderCol = isTaken ? Colors.cardBorder : isPast ? Colors.errorBorder : Colors.cardBorder;
+              const borderCol = isTaken
+                ? (highContrast ? hcCardBorder : Colors.cardBorder)
+                : isPast ? Colors.errorBorder
+                : (highContrast ? hcCardBorder : Colors.cardBorder);
 
               return (
                 <View
@@ -387,7 +398,7 @@ export default function HistoryScreen() {
                     padding: 14,
                     paddingHorizontal: 16,
                     marginBottom: 12,
-                    borderWidth: 1,
+                    borderWidth: highContrast ? 2 : 1,
                     borderColor: borderCol,
                     gap: 12,
                   }}
@@ -404,7 +415,7 @@ export default function HistoryScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.manrope.bold,
-                        fontSize: 16,
+                        fontSize: sz(16),
                         color: Colors.textPrimary,
                       }}
                     >
@@ -413,7 +424,7 @@ export default function HistoryScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.inter.regular,
-                        fontSize: 14,
+                        fontSize: sz(14),
                         color: statusColor,
                       }}
                     >

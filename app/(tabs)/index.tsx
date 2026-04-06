@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { Pill, HeartPulse, Droplets, Syringe, Thermometer, Activity, Check, Plus } from 'lucide-react-native';
 import * as Haptics from 'expo-haptics';
 import { router } from 'expo-router';
-import { Colors } from '@/constants/colors';
+import { Colors, HighContrastColors } from '@/constants/colors';
 import { Fonts } from '@/constants/fonts';
 import { useAppStore } from '@/stores/useAppStore';
-import { todayISO, formatTime, getGreeting, getTimeDiff, isDoseScheduledForDate, unitI18nKey } from '@/utils/helpers';
+import { todayISO, formatTime, getGreeting, getTimeDiff, isDoseScheduledForDate, unitI18nKey, getScaledFontSize } from '@/utils/helpers';
 
 const ICON_MAP: Record<string, React.ComponentType<any>> = {
   pill: Pill,
@@ -25,7 +25,14 @@ export default function TodayScreen() {
   const doseRecords = useAppStore((s) => s.doseRecords);
   const generateDoseRecords = useAppStore((s) => s.generateDoseRecords);
   const takeDose = useAppStore((s) => s.takeDose);
+  const textSize = useAppStore((s) => s.textSize);
+  const highContrast = useAppStore((s) => s.highContrast);
   const takingRef = useRef(false);
+
+  const sz = (base: number, isTitle = false) => getScaledFontSize(base, textSize, isTitle);
+  const hcTextSecondary = highContrast ? HighContrastColors.textSecondary : Colors.textSecondary;
+  const hcTextPlaceholder = highContrast ? HighContrastColors.textPlaceholder : Colors.textPlaceholder;
+  const hcCardBorder = highContrast ? HighContrastColors.cardBorder : undefined;
 
   const today = todayISO();
   const greeting = getGreeting();
@@ -96,8 +103,8 @@ export default function TodayScreen() {
         <Text
           style={{
             fontFamily: Fonts.inter.regular,
-            fontSize: 16,
-            color: Colors.textSecondary,
+            fontSize: sz(16),
+            color: hcTextSecondary,
           }}
         >
           {t(`today.${greeting}`)}
@@ -116,8 +123,8 @@ export default function TodayScreen() {
         <Text
           style={{
             fontFamily: Fonts.inter.regular,
-            fontSize: 16,
-            color: Colors.textPlaceholder,
+            fontSize: sz(16),
+            color: hcTextPlaceholder,
             marginTop: 4,
           }}
         >
@@ -138,8 +145,8 @@ export default function TodayScreen() {
         <Text
           style={{
             fontFamily: Fonts.inter.medium,
-            fontSize: 16,
-            color: Colors.textSecondary,
+            fontSize: sz(16),
+            color: hcTextSecondary,
           }}
         >
           {t('today.takenProgress', { taken: takenCount, total: totalCount })}
@@ -155,7 +162,7 @@ export default function TodayScreen() {
           <Text
             style={{
               fontFamily: Fonts.manrope.bold,
-              fontSize: 14,
+              fontSize: sz(14),
               color: Colors.primary,
             }}
           >
@@ -269,7 +276,7 @@ export default function TodayScreen() {
                 borderRadius: 20,
                 padding: 20,
                 marginBottom: 16,
-                borderWidth: 2,
+                borderWidth: highContrast ? 3 : 2,
                 borderColor,
                 shadowColor,
                 shadowOffset: { width: 0, height: 2 },
@@ -307,7 +314,7 @@ export default function TodayScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.manrope.extraBold,
-                        fontSize: 22,
+                        fontSize: sz(22, true),
                         color: Colors.textPrimary,
                       }}
                     >
@@ -316,8 +323,8 @@ export default function TodayScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.inter.regular,
-                        fontSize: 16,
-                        color: Colors.textSecondary,
+                        fontSize: sz(16),
+                        color: hcTextSecondary,
                       }}
                     >
                       {med.dosage}{t(unitI18nKey(med.unit))}
@@ -329,7 +336,7 @@ export default function TodayScreen() {
                   <Text
                     style={{
                       fontFamily: Fonts.manrope.bold,
-                      fontSize: 16,
+                      fontSize: sz(16),
                       color: isTaken ? Colors.success : Colors.primary,
                     }}
                   >
@@ -351,7 +358,7 @@ export default function TodayScreen() {
                       <Text
                         style={{
                           fontFamily: Fonts.manrope.bold,
-                          fontSize: 13,
+                          fontSize: sz(13),
                           color: Colors.success,
                         }}
                       >
@@ -362,7 +369,7 @@ export default function TodayScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.inter.medium,
-                        fontSize: 13,
+                        fontSize: sz(13),
                         color: Colors.primary,
                       }}
                     >
@@ -372,8 +379,8 @@ export default function TodayScreen() {
                     <Text
                       style={{
                         fontFamily: Fonts.inter.medium,
-                        fontSize: 13,
-                        color: Colors.textPlaceholder,
+                        fontSize: sz(13),
+                        color: hcTextPlaceholder,
                       }}
                     >
                       {timeDiff ? t('today.dueIn', { time: timeDiff }) : ''}
@@ -404,7 +411,7 @@ export default function TodayScreen() {
                   <Text
                     style={{
                       fontFamily: Fonts.manrope.extraBold,
-                      fontSize: 18,
+                      fontSize: sz(18),
                       color: '#FFFFFF',
                     }}
                   >
