@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-04-06T12:00:00Z",
+  "display_type": "APP_IPHONE_67",
+  "resolution": "1260x2736",
+  "locales": {
+    "en-US": {
+      "screenshots": [
+        "screenshots/en/iphone-67/01-today-1260x2736.png",
+        "screenshots/en/iphone-67/02-medications-1260x2736.png",
+        "screenshots/en/iphone-67/03-history-1260x2736.png",
+        "screenshots/en/iphone-67/04-settings-1260x2736.png",
+        "screenshots/en/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "zh-Hans": {
+      "screenshots": [
+        "screenshots/zh-Hans/iphone-67/01-today-1260x2736.png",
+        "screenshots/zh-Hans/iphone-67/02-medications-1260x2736.png",
+        "screenshots/zh-Hans/iphone-67/03-history-1260x2736.png",
+        "screenshots/zh-Hans/iphone-67/04-settings-1260x2736.png",
+        "screenshots/zh-Hans/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "zh-Hant": {
+      "screenshots": [
+        "screenshots/zh-Hant/iphone-67/01-today-1260x2736.png",
+        "screenshots/zh-Hant/iphone-67/02-medications-1260x2736.png",
+        "screenshots/zh-Hant/iphone-67/03-history-1260x2736.png",
+        "screenshots/zh-Hant/iphone-67/04-settings-1260x2736.png",
+        "screenshots/zh-Hant/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "ja": {
+      "screenshots": [
+        "screenshots/ja/iphone-67/01-today-1260x2736.png",
+        "screenshots/ja/iphone-67/02-medications-1260x2736.png",
+        "screenshots/ja/iphone-67/03-history-1260x2736.png",
+        "screenshots/ja/iphone-67/04-settings-1260x2736.png",
+        "screenshots/ja/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "ko": {
+      "screenshots": [
+        "screenshots/ko/iphone-67/01-today-1260x2736.png",
+        "screenshots/ko/iphone-67/02-medications-1260x2736.png",
+        "screenshots/ko/iphone-67/03-history-1260x2736.png",
+        "screenshots/ko/iphone-67/04-settings-1260x2736.png",
+        "screenshots/ko/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "de-DE": {
+      "screenshots": [
+        "screenshots/de/iphone-67/01-today-1260x2736.png",
+        "screenshots/de/iphone-67/02-medications-1260x2736.png",
+        "screenshots/de/iphone-67/03-history-1260x2736.png",
+        "screenshots/de/iphone-67/04-settings-1260x2736.png",
+        "screenshots/de/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "fr-FR": {
+      "screenshots": [
+        "screenshots/fr/iphone-67/01-today-1260x2736.png",
+        "screenshots/fr/iphone-67/02-medications-1260x2736.png",
+        "screenshots/fr/iphone-67/03-history-1260x2736.png",
+        "screenshots/fr/iphone-67/04-settings-1260x2736.png",
+        "screenshots/fr/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "es-ES": {
+      "screenshots": [
+        "screenshots/es/iphone-67/01-today-1260x2736.png",
+        "screenshots/es/iphone-67/02-medications-1260x2736.png",
+        "screenshots/es/iphone-67/03-history-1260x2736.png",
+        "screenshots/es/iphone-67/04-settings-1260x2736.png",
+        "screenshots/es/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "ru": {
+      "screenshots": [
+        "screenshots/ru/iphone-67/01-today-1260x2736.png",
+        "screenshots/ru/iphone-67/02-medications-1260x2736.png",
+        "screenshots/ru/iphone-67/03-history-1260x2736.png",
+        "screenshots/ru/iphone-67/04-settings-1260x2736.png",
+        "screenshots/ru/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "it": {
+      "screenshots": [
+        "screenshots/it/iphone-67/01-today-1260x2736.png",
+        "screenshots/it/iphone-67/02-medications-1260x2736.png",
+        "screenshots/it/iphone-67/03-history-1260x2736.png",
+        "screenshots/it/iphone-67/04-settings-1260x2736.png",
+        "screenshots/it/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "ar-SA": {
+      "screenshots": [
+        "screenshots/ar/iphone-67/01-today-1260x2736.png",
+        "screenshots/ar/iphone-67/02-medications-1260x2736.png",
+        "screenshots/ar/iphone-67/03-history-1260x2736.png",
+        "screenshots/ar/iphone-67/04-settings-1260x2736.png",
+        "screenshots/ar/iphone-67/05-paywall-1260x2736.png"
+      ]
+    },
+    "id": {
+      "screenshots": [
+        "screenshots/id/iphone-67/01-today-1260x2736.png",
+        "screenshots/id/iphone-67/02-medications-1260x2736.png",
+        "screenshots/id/iphone-67/03-history-1260x2736.png",
+        "screenshots/id/iphone-67/04-settings-1260x2736.png",
+        "screenshots/id/iphone-67/05-paywall-1260x2736.png"
+      ]
+    }
+  }
+}

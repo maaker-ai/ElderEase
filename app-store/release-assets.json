@@ -16,7 +16,20 @@
     "description": "Replaced Expo placeholder with brand icon"
   },
   "screenshots": {
-    "status": "not_generated",
-    "note": "Beta phase - screenshots will be generated for store submission"
+    "status": "generated",
+    "generated_at": "2026-04-06T12:00:00Z",
+    "device": "iphone-67",
+    "resolution": "1260x2736",
+    "locales": ["en", "zh-Hans", "zh-Hant", "ja", "ko", "de", "fr", "es", "ru", "it", "ar", "id"],
+    "slides_per_locale": 5,
+    "total_count": 60,
+    "base_path": "app-store/screenshots",
+    "slides": [
+      { "id": 1, "name": "01-today", "screen": "Today tab" },
+      { "id": 2, "name": "02-medications", "screen": "Medications tab" },
+      { "id": 3, "name": "03-history", "screen": "History tab" },
+      { "id": 4, "name": "04-settings", "screen": "Settings tab" },
+      { "id": 5, "name": "05-paywall", "screen": "Paywall modal" }
+    ]
   }
 }
