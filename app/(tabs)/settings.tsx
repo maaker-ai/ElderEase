@@ -511,7 +511,7 @@ export default function SettingsScreen() {
           <Divider fullWidth />
           <SettingsRow
             label={t('settings.privacyPolicy')}
-            onPress={() => Linking.openURL('https://maaker.ai/privacy/elderease')}
+            onPress={() => Linking.openURL('https://maaker-ai.github.io/ElderEase/privacy.html')}
           />
           {!isUnlimited && (
             <>
