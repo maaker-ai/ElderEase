@@ -151,7 +151,6 @@ export default function SettingsScreen() {
   const TEXT_SIZE_OPTIONS: TextSizeOption[] = ['default', 'large', 'extra-large'];
   const textSizeLabel = t(`settings.${textSize === 'extra-large' ? 'extraLarge' : textSize}`);
 
-  const textSizeSliderPosition = textSize === 'default' ? 0 : textSize === 'large' ? 0.5 : 1;
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.background }}>
@@ -428,86 +427,24 @@ export default function SettingsScreen() {
           <>
             <SectionLabel text={t('settings.display')} />
             <SettingsCard>
-              {/* Text Size row with slider */}
-              <View style={{ paddingVertical: 18, paddingHorizontal: 20, gap: 12 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-                    <View
-                      style={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: 10,
-                        backgroundColor: Colors.purpleLight,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                      }}
-                    >
-                      <Type size={20} color="#8B5CF6" strokeWidth={2} />
-                    </View>
-                    <Text
-                      style={{
-                        fontFamily: Fonts.manrope.bold,
-                        fontSize: 18,
-                        color: Colors.textPrimary,
-                      }}
-                    >
-                      {t('settings.textSize')}
-                    </Text>
-                  </View>
-                  <Text
-                    style={{
-                      fontFamily: Fonts.inter.medium,
-                      fontSize: 14,
-                      color: Colors.primary,
-                    }}
-                  >
-                    {textSizeLabel}
-                  </Text>
-                </View>
-                {/* Slider track */}
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  onPress={() => {
-                    const idx = TEXT_SIZE_OPTIONS.indexOf(textSize);
-                    setTextSize(TEXT_SIZE_OPTIONS[(idx + 1) % TEXT_SIZE_OPTIONS.length]);
-                  }}
-                  style={{ height: 24, justifyContent: 'center' }}
-                >
-                  <View
-                    style={{
-                      height: 6,
-                      borderRadius: 3,
-                      backgroundColor: Colors.cardBorder,
-                      width: '100%',
-                    }}
-                  >
-                    <View
-                      style={{
-                        height: 6,
-                        borderRadius: 3,
-                        backgroundColor: Colors.primary,
-                        width: `${textSizeSliderPosition * 100}%`,
-                      }}
-                    />
-                  </View>
-                  <View
-                    style={[
-                      {
-                        position: 'absolute',
-                        left: `${textSizeSliderPosition * 100}%`,
-                        marginLeft: -12,
-                        width: 24,
-                        height: 24,
-                        borderRadius: 12,
-                        backgroundColor: Colors.primary,
-                      },
-                      Platform.OS === 'ios'
-                        ? { shadowColor: '#F59E0B', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.4, shadowRadius: 8 }
-                        : { elevation: 4 },
-                    ]}
-                  />
-                </TouchableOpacity>
-              </View>
+              <SettingsRow
+                icon={<Type size={20} color="#8B5CF6" strokeWidth={2} />}
+                iconBg={Colors.purpleLight}
+                label={t('settings.textSize')}
+                value={textSizeLabel}
+                onPress={() => {
+                  const options = TEXT_SIZE_OPTIONS.map((s) => t(`settings.${s === 'extra-large' ? 'extraLarge' : s}`));
+                  options.push(t('common.cancel'));
+                  ActionSheetIOS.showActionSheetWithOptions(
+                    { options, cancelButtonIndex: options.length - 1 },
+                    (index) => {
+                      if (index !== options.length - 1) {
+                        setTextSize(TEXT_SIZE_OPTIONS[index]);
+                      }
+                    },
+                  );
+                }}
+              />
               <Divider />
               {/* High Contrast row with toggle */}
               <View
