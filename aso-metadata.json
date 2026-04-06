@@ -1,0 +1,191 @@
+{
+  "platform": "ios",
+  "locale": "en-US",
+  "title": "ElderEase - Pill Reminder",
+  "subtitle": "Medication Tracker for Seniors",
+  "keywords": "pill,reminder,medication,tracker,elderly,senior,dose,schedule,health,drug,alert,refill,caregiver,daily",
+  "promotional_text": "Simple medication reminders built for seniors. No subscriptions, no ads, no data collection. Buy once, yours forever. Your loved ones never miss a dose.",
+  "description": "Tired of complicated medication apps that confuse more than help? ElderEase is the pill reminder designed specifically for seniors — extra-large text, simple one-tap actions, and zero clutter.\n\nYOUR MEDICATIONS, ORGANIZED\n• Add medications with name, dosage, and schedule in seconds\n• Set daily, every-2-day, or weekly reminders\n• See today's medications at a glance with clear status indicators\n• Track remaining stock and get refill alerts before you run out\n\nNEVER MISS A DOSE\n• Reliable local push notifications right on time\n• One-tap \"Taken\" button — no tiny checkboxes or confusing menus\n• Calendar view shows your complete medication history\n• Green for taken, red for missed — instantly clear\n\nBUILT FOR SENIORS, LOVED BY FAMILIES\n• Extra-large fonts (20sp+) readable without reading glasses\n• High contrast mode meets WCAG 2.1 AA accessibility standards\n• Full VoiceOver support for visually impaired users\n• Touch targets 48x48dp minimum — easy to tap, hard to miss\n\nPRIVACY YOU CAN TRUST\n• All data stays on your device — zero cloud uploads\n• No account required, no sign-up, no personal data collected\n• No ads, no tracking, no third-party data sharing\n• Works completely offline\n\nSIMPLE, HONEST PRICING\n• Free: Track up to 3 medications\n• One-time $9.99: Unlimited medications, forever\n• No subscriptions. No hidden fees. Pay once, done.\n\nPerfect for elderly parents, grandparents, or anyone who wants a medication reminder that just works. Download ElderEase and help your loved ones stay on track.",
+  "whats_new": "• Improved text size and high contrast settings across all screens\n• Better notification scheduling reliability\n• Bug fixes and performance improvements",
+  "screenshot_captions": [
+    "Never Miss a Dose Again",
+    "All Your Medications in One Place",
+    "Track Your Medication History",
+    "Designed for Easy Reading",
+    "One Price. Yours Forever."
+  ],
+  "keyword_strategy": {
+    "primary": ["pill reminder", "medication tracker", "elderly"],
+    "secondary": ["senior health", "dose reminder", "drug schedule", "refill alert", "caregiver"],
+    "long_tail": ["medication reminder for seniors", "pill tracker for elderly", "simple pill reminder app", "medication app for parents"]
+  },
+  "competitor_insights": {
+    "analyzed_count": 10,
+    "keyword_gaps": ["elderly", "senior", "caregiver", "refill", "stock tracker", "no subscription", "privacy"],
+    "positioning": "The only pill reminder built specifically for seniors — extra-large text, one-tap actions, privacy-first, and honest one-time pricing with no subscriptions."
+  },
+  "validation": {
+    "title_chars": 26,
+    "subtitle_chars": 30,
+    "keywords_chars": 99,
+    "promo_text_chars": 152,
+    "description_chars": 1598,
+    "all_within_limits": true
+  },
+  "localizations": {
+    "zh-Hans": {
+      "title": "ElderEase - 吃药提醒",
+      "subtitle": "老人用药管理，简单好用",
+      "keywords": "吃药提醒,用药,药物管理,老人,健康,剂量,服药记录,按时吃药,药量追踪,提醒,父母,补药,日历,每日",
+      "promotional_text": "专为老年人设计的吃药提醒。超大字体、一键操作、数据不出手机。一次购买，永久使用，没有订阅和广告。",
+      "description": "厌倦了复杂难用的吃药 App？ElderEase 专为老年人设计——超大字体、一键标记、零打扰。\n\n药物管理，一目了然\n• 几秒钟添加药物、剂量和提醒时间\n• 支持每天、隔天、每周多种频率\n• 首页直接看到今天该吃的药和状态\n• 库存追踪，快没药时提前提醒\n\n按时吃药，从不遗漏\n• 准时推送本地通知提醒\n• 超大「已服药」按钮，一点就好\n• 日历视图查看完整服药记录\n• 绿色已服、红色漏服，一看就懂\n\n为老人设计，让家人安心\n• 超大字体 20sp+，不戴老花镜也能看清\n• 高对比度模式，符合无障碍标准\n• 完整 VoiceOver 支持\n• 触控区域够大，不怕点错\n\n隐私安全，值得信赖\n• 所有数据只存在手机上，不上传云端\n• 不需要注册账号，不收集个人信息\n• 没有广告、没有追踪、没有数据分享\n• 离线也能正常使用\n\n价格简单透明\n• 免费版：追踪 3 种药物\n• 一次性 ¥68：无限药物，永久使用\n• 没有订阅，没有隐藏收费\n\n给爸妈装一个 ElderEase，让他们按时吃药，让你更安心。",
+      "screenshot_captions": [
+        "按时吃药 从不遗漏",
+        "所有药物 一目了然",
+        "服药记录 清晰可查",
+        "超大字体 轻松阅读",
+        "一次购买 永久使用"
+      ]
+    },
+    "zh-Hant": {
+      "title": "ElderEase - 吃藥提醒",
+      "subtitle": "長輩用藥管理，簡單好用",
+      "keywords": "吃藥提醒,用藥,藥物管理,長輩,健康,劑量,服藥紀錄,按時吃藥,藥量追蹤,提醒,父母,補藥,日曆,每日",
+      "promotional_text": "專為長輩設計的吃藥提醒。超大字體、一鍵操作、資料不出手機。一次購買，永久使用，沒有訂閱和廣告。",
+      "description": "厭倦了複雜難用的吃藥 App？ElderEase 專為長輩設計——超大字體、一鍵標記、零打擾。\n\n藥物管理，一目了然\n• 幾秒鐘新增藥物、劑量和提醒時間\n• 支援每天、隔天、每週多種頻率\n• 首頁直接看到今天該吃的藥和狀態\n• 庫存追蹤，快沒藥時提前提醒\n\n按時吃藥，從不遺漏\n• 準時推送本地通知提醒\n• 超大「已服藥」按鈕，一點就好\n• 日曆檢視查看完整服藥紀錄\n• 綠色已服、紅色漏服，一看就懂\n\n為長輩設計，讓家人安心\n• 超大字體 20sp+，不戴老花眼鏡也能看清\n• 高對比度模式，符合無障礙標準\n• 完整 VoiceOver 支援\n• 觸控區域夠大，不怕點錯\n\n隱私安全，值得信賴\n• 所有資料只存在手機上，不上傳雲端\n• 不需要註冊帳號，不收集個人資訊\n• 沒有廣告、沒有追蹤、沒有資料分享\n• 離線也能正常使用\n\n價格簡單透明\n• 免費版：追蹤 3 種藥物\n• 一次性 NT$320：無限藥物，永久使用\n• 沒有訂閱，沒有隱藏收費\n\n給爸媽裝一個 ElderEase，讓他們按時吃藥，讓你更安心。",
+      "screenshot_captions": [
+        "按時吃藥 從不遺漏",
+        "所有藥物 一目了然",
+        "服藥紀錄 清晰可查",
+        "超大字體 輕鬆閱讀",
+        "一次購買 永久使用"
+      ]
+    },
+    "ja": {
+      "title": "ElderEase - お薬リマインダー",
+      "subtitle": "高齢者向け服薬管理アプリ",
+      "keywords": "薬,リマインダー,服薬,管理,高齢者,シニア,健康,投薬,通知,飲み忘れ,介護,在庫,カレンダー,毎日",
+      "promotional_text": "高齢者のために作られたお薬リマインダー。大きな文字、ワンタップ操作、データは端末内のみ。一度の購入で永久に使えます。",
+      "description": "複雑なお薬アプリにうんざりしていませんか？ElderEaseは高齢者専用に設計——特大文字、ワンタップ操作、余計な機能ゼロ。\n\nお薬を簡単管理\n• 薬名・用量・スケジュールを数秒で登録\n• 毎日・2日おき・毎週の頻度に対応\n• 今日飲む薬と状態をホーム画面で一目確認\n• 残量トラッキングで補充時期をお知らせ\n\n飲み忘れゼロへ\n• 時間通りにローカル通知でお知らせ\n• 大きな「服用済み」ボタンをワンタップ\n• カレンダービューで服薬履歴を確認\n• 緑＝服用済み、赤＝飲み忘れ、一目でわかる\n\n高齢者のために設計、ご家族も安心\n• 特大フォント20sp+、老眼鏡なしでも読める\n• 高コントラストモード、アクセシビリティ基準準拠\n• VoiceOver完全対応\n• タッチ領域48x48dp以上、押し間違いなし\n\n安心のプライバシー\n• データは全て端末内保存、クラウド不使用\n• アカウント登録不要、個人情報収集なし\n• 広告なし、トラッキングなし\n• オフラインでも動作\n\nシンプルな料金\n• 無料：3種類まで管理\n• 一括¥1,500：無制限、永久使用\n• サブスクなし、隠れた費用なし\n\n大切なご家族にElderEaseを。飲み忘れのない毎日を。",
+      "screenshot_captions": [
+        "もう飲み忘れない",
+        "すべてのお薬を一覧管理",
+        "服薬履歴をカレンダーで確認",
+        "特大文字で読みやすい",
+        "一度の購入で永久に使える"
+      ]
+    },
+    "ko": {
+      "title": "ElderEase - 약 복용 알림",
+      "subtitle": "어르신 복약 관리, 간편하게",
+      "keywords": "약,알림,복용,관리,어르신,시니어,건강,투약,알람,복약기록,보호자,재고,캘린더,매일",
+      "promotional_text": "어르신을 위한 약 복용 알림. 큰 글씨, 원탭 조작, 데이터는 기기에만 저장. 한 번 구매로 영구 사용.",
+      "description": "복잡한 약 관리 앱에 지치셨나요? ElderEase는 어르신 전용으로 설계되었습니다—초대형 글씨, 원탭 조작, 불필요한 기능 제로.\n\n약물 관리, 한눈에\n• 약 이름, 용량, 일정을 몇 초 만에 등록\n• 매일, 격일, 매주 다양한 빈도 지원\n• 홈 화면에서 오늘 복용할 약과 상태를 바로 확인\n• 재고 추적으로 약이 부족할 때 미리 알림\n\n복용 시간, 놓치지 마세요\n• 정시에 로컬 알림으로 알려드립니다\n• 큰 '복용 완료' 버튼을 한 번만 탭\n• 캘린더로 전체 복약 기록 확인\n• 초록=복용, 빨강=미복용, 한눈에 파악\n\n어르신을 위한 설계, 가족의 안심\n• 초대형 글꼴 20sp+, 돋보기 없이도 잘 보여요\n• 고대비 모드, 접근성 표준 준수\n• VoiceOver 완벽 지원\n• 터치 영역 48x48dp 이상, 잘못 누를 걱정 없음\n\n믿을 수 있는 프라이버시\n• 모든 데이터는 기기에만 저장, 클라우드 없음\n• 계정 등록 불필요, 개인정보 수집 없음\n• 광고 없음, 추적 없음\n• 오프라인에서도 작동\n\n간단한 가격\n• 무료: 약 3개까지\n• 일회성 ₩14,000: 무제한, 영구 사용\n• 구독 없음, 숨은 비용 없음\n\n소중한 가족에게 ElderEase를 설치해 드리세요.",
+      "screenshot_captions": [
+        "약 복용을 놓치지 마세요",
+        "모든 약을 한눈에 관리",
+        "복약 기록을 달력으로 확인",
+        "큰 글씨로 편하게 읽기",
+        "한 번 구매, 영구 사용"
+      ]
+    },
+    "de": {
+      "title": "ElderEase - Pillenerinnerung",
+      "subtitle": "Medikamenten-Tracker für Senioren",
+      "keywords": "Pille,Erinnerung,Medikament,Tracker,Senioren,Gesundheit,Dosis,Zeitplan,Alarm,Einnahme,Pflege,Vorrat,Kalender,täglich",
+      "promotional_text": "Medikamentenerinnerung für Senioren. Große Schrift, Ein-Tipp-Bedienung, Daten bleiben auf dem Gerät. Einmal kaufen, für immer nutzen.",
+      "description": "Genug von komplizierten Medikamenten-Apps? ElderEase wurde speziell für Senioren entwickelt — extra große Schrift, Ein-Tipp-Bedienung, kein unnötiger Schnickschnack.\n\nMedikamente einfach verwalten\n• Medikament, Dosis und Zeitplan in Sekunden hinzufügen\n• Täglich, alle 2 Tage oder wöchentlich einstellen\n• Heutige Medikamente und Status auf einen Blick\n• Bestandsverfolgung mit Nachfüllerinnerung\n\nKeine Dosis mehr vergessen\n• Pünktliche lokale Benachrichtigungen\n• Großer „Eingenommen"-Button — ein Tipp genügt\n• Kalenderansicht zeigt komplette Einnahmehistorie\n• Grün = eingenommen, rot = vergessen — sofort klar\n\nFür Senioren gebaut, von Familien geliebt\n• Extra große Schrift 20sp+, auch ohne Lesebrille lesbar\n• Hochkontrast-Modus, WCAG 2.1 AA konform\n• Volle VoiceOver-Unterstützung\n• Berührungsziele 48x48dp — leicht zu treffen\n\nDatenschutz, dem Sie vertrauen\n• Alle Daten bleiben auf Ihrem Gerät\n• Keine Anmeldung, keine Datenerfassung\n• Keine Werbung, kein Tracking\n• Funktioniert komplett offline\n\nEinfache Preise\n• Kostenlos: Bis zu 3 Medikamente\n• Einmalig 9,99 €: Unbegrenzt, für immer\n• Kein Abo, keine versteckten Kosten\n\nInstallieren Sie ElderEase für Ihre Liebsten.",
+      "screenshot_captions": [
+        "Keine Dosis mehr vergessen",
+        "Alle Medikamente auf einen Blick",
+        "Einnahmehistorie im Kalender",
+        "Extra große Schrift zum Lesen",
+        "Einmal kaufen. Für immer Ihres."
+      ]
+    },
+    "fr": {
+      "title": "ElderEase - Rappel Médicaments",
+      "subtitle": "Suivi de pilules pour seniors",
+      "keywords": "pilule,rappel,médicament,suivi,seniors,santé,dose,horaire,alarme,prise,aidant,stock,calendrier,quotidien",
+      "promotional_text": "Rappel de médicaments conçu pour les seniors. Grande police, un seul geste, données sur l'appareil uniquement. Achat unique, utilisation à vie.",
+      "description": "Marre des applis médicaments trop compliquées ? ElderEase est conçu spécialement pour les seniors — police extra large, actions en un geste, zéro superflu.\n\nGérez vos médicaments facilement\n• Ajoutez médicament, dosage et horaire en quelques secondes\n• Fréquence quotidienne, tous les 2 jours ou hebdomadaire\n• Voyez les médicaments du jour et leur statut d'un coup d'œil\n• Suivi du stock avec alerte de réapprovisionnement\n\nNe manquez plus aucune prise\n• Notifications locales ponctuelles\n• Grand bouton « Pris » — un seul geste suffit\n• Vue calendrier de l'historique complet\n• Vert = pris, rouge = oublié — tout est clair\n\nConçu pour les seniors, adopté par les familles\n• Police extra large 20sp+, lisible sans lunettes\n• Mode contraste élevé, conforme WCAG 2.1 AA\n• Support VoiceOver complet\n• Zones tactiles 48x48dp — faciles à toucher\n\nConfidentialité garantie\n• Toutes les données restent sur votre appareil\n• Pas d'inscription, pas de collecte de données\n• Pas de pub, pas de suivi\n• Fonctionne hors ligne\n\nTarification simple\n• Gratuit : jusqu'à 3 médicaments\n• Achat unique 9,99 € : illimité, pour toujours\n• Pas d'abonnement, pas de frais cachés\n\nInstallez ElderEase pour vos proches.",
+      "screenshot_captions": [
+        "Ne manquez plus aucune prise",
+        "Tous vos médicaments en un lieu",
+        "Historique de prises en calendrier",
+        "Police extra large, lecture facile",
+        "Un achat. À vous pour toujours."
+      ]
+    },
+    "es": {
+      "title": "ElderEase - Recordatorio Pastillas",
+      "subtitle": "Control de medicación para mayores",
+      "keywords": "pastilla,recordatorio,medicamento,control,mayores,salud,dosis,horario,alarma,toma,cuidador,stock,calendario,diario",
+      "promotional_text": "Recordatorio de medicación para personas mayores. Letra grande, un solo toque, datos solo en el dispositivo. Compra única, uso para siempre.",
+      "description": "¿Cansado de apps de medicación complicadas? ElderEase está diseñado para personas mayores — letra extra grande, acciones de un toque, sin complicaciones.\n\nGestiona tus medicamentos fácilmente\n• Añade medicamento, dosis y horario en segundos\n• Frecuencia diaria, cada 2 días o semanal\n• Ve los medicamentos de hoy y su estado de un vistazo\n• Control de stock con alerta de reposición\n\nNo te pierdas ninguna toma\n• Notificaciones locales puntuales\n• Botón grande \"Tomado\" — un solo toque\n• Vista de calendario con historial completo\n• Verde = tomado, rojo = olvidado — todo claro\n\nDiseñado para mayores, querido por familias\n• Letra extra grande 20sp+, legible sin gafas\n• Modo alto contraste, cumple WCAG 2.1 AA\n• Soporte completo de VoiceOver\n• Zonas táctiles 48x48dp — fáciles de pulsar\n\nPrivacidad garantizada\n• Todos los datos en tu dispositivo\n• Sin registro, sin recopilación de datos\n• Sin anuncios, sin rastreo\n• Funciona sin conexión\n\nPrecio simple\n• Gratis: hasta 3 medicamentos\n• Pago único 9,99 €: ilimitado, para siempre\n• Sin suscripción, sin costes ocultos\n\nInstala ElderEase para tus seres queridos.",
+      "screenshot_captions": [
+        "No te pierdas ninguna toma",
+        "Todos tus medicamentos en un lugar",
+        "Historial de tomas en calendario",
+        "Letra extra grande, fácil de leer",
+        "Una compra. Tuyo para siempre."
+      ]
+    },
+    "ru": {
+      "title": "ElderEase - Напоминание о лекарствах",
+      "subtitle": "Трекер приёма для пожилых",
+      "keywords": "таблетка,напоминание,лекарство,трекер,пожилые,здоровье,доза,расписание,уведомление,приём,забота,запас,календарь",
+      "promotional_text": "Напоминание о лекарствах для пожилых. Крупный шрифт, одно касание, данные только на устройстве. Одна покупка — навсегда.",
+      "description": "Устали от сложных приложений для лекарств? ElderEase создан для пожилых — очень крупный шрифт, действия в одно касание, ничего лишнего.\n\nУправление лекарствами просто\n• Добавьте лекарство, дозу и расписание за секунды\n• Ежедневно, через день или еженедельно\n• Лекарства на сегодня и их статус — на главном экране\n• Отслеживание запасов с напоминанием о пополнении\n\nНе пропустите ни одного приёма\n• Точные локальные уведомления\n• Большая кнопка «Принято» — одно касание\n• Календарь с полной историей приёма\n• Зелёный = принято, красный = пропущено\n\nДля пожилых — спокойствие для семьи\n• Очень крупный шрифт 20sp+, читается без очков\n• Режим высокого контраста, стандарт WCAG 2.1 AA\n• Полная поддержка VoiceOver\n• Зоны касания 48x48dp — легко нажать\n\nКонфиденциальность\n• Все данные только на устройстве\n• Без регистрации, без сбора данных\n• Без рекламы, без отслеживания\n• Работает офлайн\n\nПростая цена\n• Бесплатно: до 3 лекарств\n• Разовая покупка $9.99: без ограничений, навсегда\n• Без подписки, без скрытых платежей\n\nУстановите ElderEase для близких.",
+      "screenshot_captions": [
+        "Не пропустите приём лекарств",
+        "Все лекарства в одном месте",
+        "История приёма в календаре",
+        "Крупный шрифт — удобно читать",
+        "Одна покупка. Навсегда ваше."
+      ]
+    },
+    "it": {
+      "title": "ElderEase - Promemoria Farmaci",
+      "subtitle": "Gestione medicine per anziani",
+      "keywords": "pillola,promemoria,farmaco,gestione,anziani,salute,dose,orario,avviso,assunzione,assistenza,scorta,calendario,giornaliero",
+      "promotional_text": "Promemoria farmaci per anziani. Caratteri grandi, un tocco, dati solo sul dispositivo. Acquisto unico, uso per sempre.",
+      "description": "Stufo di app complicate per i farmaci? ElderEase è progettato per gli anziani — caratteri extra grandi, azioni con un tocco, zero confusione.\n\nGestisci i farmaci facilmente\n• Aggiungi farmaco, dosaggio e orario in pochi secondi\n• Frequenza giornaliera, ogni 2 giorni o settimanale\n• Farmaci di oggi e stato a colpo d'occhio\n• Tracciamento scorte con avviso di rifornimento\n\nNon saltare nessuna dose\n• Notifiche locali puntuali\n• Grande pulsante \"Assunto\" — un solo tocco\n• Vista calendario con storico completo\n• Verde = assunto, rosso = saltato — tutto chiaro\n\nProgettato per anziani, amato dalle famiglie\n• Caratteri extra grandi 20sp+, leggibili senza occhiali\n• Modalità alto contrasto, conforme WCAG 2.1 AA\n• Supporto VoiceOver completo\n• Aree touch 48x48dp — facili da premere\n\nPrivacy garantita\n• Tutti i dati restano sul dispositivo\n• Nessuna registrazione, nessuna raccolta dati\n• Nessuna pubblicità, nessun tracciamento\n• Funziona offline\n\nPrezzo semplice\n• Gratis: fino a 3 farmaci\n• Acquisto unico 9,99 €: illimitato, per sempre\n• Nessun abbonamento, nessun costo nascosto\n\nInstalla ElderEase per i tuoi cari.",
+      "screenshot_captions": [
+        "Non saltare mai una dose",
+        "Tutti i farmaci in un posto",
+        "Storico assunzioni nel calendario",
+        "Caratteri grandi, lettura facile",
+        "Un acquisto. Tuo per sempre."
+      ]
+    },
+    "ar": {
+      "title": "ElderEase - تذكير الأدوية",
+      "subtitle": "إدارة الأدوية لكبار السن",
+      "keywords": "دواء,تذكير,أدوية,متابعة,كبار السن,صحة,جرعة,جدول,تنبيه,تناول,رعاية,مخزون,تقويم,يومي",
+      "promotional_text": "تذكير بالأدوية لكبار السن. خط كبير، لمسة واحدة، البيانات على جهازك فقط. شراء لمرة واحدة، استخدام للأبد.",
+      "description": "هل سئمت من تطبيقات الأدوية المعقدة؟ ElderEase مصمم خصيصاً لكبار السن — خط كبير جداً، إجراءات بلمسة واحدة، بدون تعقيد.\n\nإدارة أدويتك بسهولة\n• أضف الدواء والجرعة والجدول في ثوانٍ\n• يومياً، كل يومين، أو أسبوعياً\n• أدوية اليوم وحالتها في نظرة واحدة\n• تتبع المخزون مع تنبيه إعادة التعبئة\n\nلا تفوّت أي جرعة\n• إشعارات محلية دقيقة في الوقت المحدد\n• زر \"تم التناول\" كبير — لمسة واحدة\n• عرض التقويم لسجل التناول الكامل\n• أخضر = تم، أحمر = فائت — واضح فوراً\n\nمصمم لكبار السن، محبوب من العائلات\n• خط كبير جداً 20sp+، قابل للقراءة بدون نظارات\n• وضع التباين العالي، متوافق مع WCAG 2.1 AA\n• دعم VoiceOver كامل\n• مناطق لمس 48x48dp — سهلة الضغط\n\nخصوصية تثق بها\n• جميع البيانات على جهازك فقط\n• بدون تسجيل، بدون جمع بيانات\n• بدون إعلانات، بدون تتبع\n• يعمل بدون إنترنت\n\nسعر بسيط\n• مجاني: حتى 3 أدوية\n• دفعة واحدة $9.99: غير محدود، للأبد\n• بدون اشتراك، بدون رسوم مخفية\n\nثبّت ElderEase لأحبائك.",
+      "screenshot_captions": [
+        "لا تفوّت أي جرعة بعد الآن",
+        "جميع أدويتك في مكان واحد",
+        "سجل التناول في التقويم",
+        "خط كبير لقراءة مريحة",
+        "شراء واحد. ملكك للأبد."
+      ]
+    },
+    "id": {
+      "title": "ElderEase - Pengingat Obat",
+      "subtitle": "Kelola obat untuk lansia",
+      "keywords": "obat,pengingat,minum obat,pelacak,lansia,kesehatan,dosis,jadwal,alarm,konsumsi,perawat,stok,kalender,harian",
+      "promotional_text": "Pengingat obat untuk lansia. Huruf besar, satu ketukan, data hanya di perangkat. Beli sekali, pakai selamanya.",
+      "description": "Bosan dengan aplikasi obat yang rumit? ElderEase dirancang khusus untuk lansia — huruf ekstra besar, aksi satu ketukan, tanpa fitur berlebihan.\n\nKelola obat dengan mudah\n• Tambahkan obat, dosis, dan jadwal dalam hitungan detik\n• Harian, setiap 2 hari, atau mingguan\n• Lihat obat hari ini dan statusnya sekilas\n• Pelacakan stok dengan pengingat isi ulang\n\nJangan lewatkan satu dosis pun\n• Notifikasi lokal tepat waktu\n• Tombol besar \"Sudah Minum\" — satu ketukan\n• Tampilan kalender riwayat lengkap\n• Hijau = sudah, merah = terlewat — langsung jelas\n\nDirancang untuk lansia, dicintai keluarga\n• Huruf ekstra besar 20sp+, terbaca tanpa kacamata\n• Mode kontras tinggi, sesuai WCAG 2.1 AA\n• Dukungan VoiceOver penuh\n• Area sentuh 48x48dp — mudah ditekan\n\nPrivasi terjamin\n• Semua data hanya di perangkat\n• Tanpa pendaftaran, tanpa pengumpulan data\n• Tanpa iklan, tanpa pelacakan\n• Berfungsi offline\n\nHarga sederhana\n• Gratis: hingga 3 obat\n• Bayar sekali Rp159.000: tanpa batas, selamanya\n• Tanpa langganan, tanpa biaya tersembunyi\n\nPasang ElderEase untuk orang tersayang Anda.",
+      "screenshot_captions": [
+        "Jangan lewatkan minum obat",
+        "Semua obat dalam satu tempat",
+        "Riwayat minum obat di kalender",
+        "Huruf besar, nyaman dibaca",
+        "Beli sekali. Milik Anda selamanya."
+      ]
+    }
+  }
+}
