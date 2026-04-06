@@ -40,3 +40,4 @@ yarn-error.*
 /ios
 /android
 *.ipa
+screenshots-store/public/app-captures/
